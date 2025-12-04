@@ -1,0 +1,3 @@
+#ambient#
+remove all samples above 2.0
+remove all samples lower then 0.1
