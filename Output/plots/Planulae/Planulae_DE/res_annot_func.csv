@@ -1,0 +1,332 @@
+Annotated Gene List: 325 Differentially Expressed Genes in Stylophora pistillata,,,,,,
+Key:,,,,,,
+HF (Positive LFC): Upregulated in High-Fluorescence Planulae.,,,,,,
+NF (Negative LFC): Upregulated in Non-Fluorescent Planulae.,,,,,,
+"References: Specific citations used for validation. ""Inferred from Protein Family"" denotes genes where the coral-specific function is derived from conserved domain analysis.",,,,,,
+,,,,,,
+#,Gene Symbol,Description,LFC (Exp),Category,Biological Function & Explanation,Reference
+1,LOC111327082,major yolk protein-like,+3.56 (HF),Energy / Lipid,Precursor to vitellogenin; massive lipid storage for larval survival and maternal investment.,Levy et al. (2021) (Calicoblasts)
+2,LOC111341563,uncharacterized LOC111341563,+3.51 (HF),Unknown,Function unknown. Likely a Taxon-Restricted Gene (TRG).,Levy et al. (2021) (General TRG discussion)
+3,LOC111324201,coadhesin-like,-1.66 (NF),Adhesion,Cell-to-cell or cell-matrix adhesion molecule.,UniProt (Family P04040); General Cell Biology
+4,LOC111327809,neurogenic locus notch homolog protein 3-like,+3.11 (HF),Development,Notch signaling pathway; determines cell fate (neuron vs epidermal).,Levy et al. (2021) (Proliferative cells)
+5,LOC111345835,riboflavin-binding protein-like,+3.10 (HF),Metabolism,"Transport of Vitamin B2 (Riboflavin), essential for FAD/FMN in respiration.",UniProt P02752 (Chicken RBP homolog)
+6,LOC111327226,uncharacterized LOC111327226,-1.92 (NF),Unknown,Function unknown.,N/A
+7,LOC111328748,complement C3-like,+2.66 (HF),Immunity,Innate immune system; marks pathogens for clearance (opsonization).,Levy et al. (2021) (Immune cells)
+8,LOC111327880,bone morphogenetic protein 1-like,+3.48 (HF),Development,BMP signaling; dorsal-ventral patterning and skeletal formation.,Levy et al. (2021)
+9,LOC111328024,extracellular sulfatase Sulf-1-like,+2.35 (HF),Signaling,Modulates Wnt/BMP signaling by modifying heparan sulfate in the ECM.,Dhoot et al. (2001) (Sulf1 in development)
+10,LOC111334416,kielin/chordin-like protein,+2.87 (HF),Development,BMP antagonist; regulates developmental patterning.,Lin et al. (2005) (KCP in kidney fibrosis/BMP signaling)
+11,LOC111328393,epithelial discoidin domain-containing receptor 1-like,+3.09 (HF),Signaling,Collagen receptor; regulates cell attachment to the skeleton/ECM.,Vogel et al. (1997) (DDRs as collagen receptors)
+12,LOC111343122,APOBEC1 complementation factor-like,+2.60 (HF),RNA Editing,RNA editing complex; modifies mRNA transcripts (C-to-U editing).,Lellek et al. (2000) (A1CF function)
+13,LOC111329237,uncharacterized LOC111329237,+2.48 (HF),Unknown,Function unknown.,N/A
+14,LOC111343452,proprotein convertase subtilisin/kexin type 5-like,+2.33 (HF),Metabolism,"Activates precursor proteins (e.g., growth factors, toxins) by cleavage.",Levy et al. (2021) (Secretory cells)
+15,LOC111320817,collagen alpha-1(I) chain-like,+3.25 (HF),Calcification,Major structural protein of the organic matrix and connective tissue.,Levy et al. (2021) (Calicoblasts)
+16,LOC111329099,neurogenic locus notch homolog protein 1-like,+1.97 (HF),Development,Notch signaling; critical for neurogenesis and cell differentiation.,Levy et al. (2021)
+17,LOC111344278,uncharacterized LOC111344278,+2.25 (HF),Unknown,Function unknown.,N/A
+18,LOC111330631,homeobox protein SIX6-like,+2.90 (HF),Development,"Transcription factor; regulates anterior development (in bilateria, eyes).",Veroff et al. (2017) (Coral Hox/ParaHox genes)
+19,LOC111336303,peroxidasin-like,+2.54 (HF),Stress / ECM,Crosslinks collagen in the ECM; uses H2O2 (antioxidant role).,Fidler et al. (2014) (Peroxidasin forms sulfilimine bonds)
+20,LOC111324192,angiopoietin-1 receptor-like,+2.04 (HF),Signaling,Receptor tyrosine kinase; involved in vascular/tissue development.,Davis et al. (1996) (Tie2 receptor function)
+21,LOC111332158,neural cell adhesion molecule 2-like,+2.31 (HF),Nervous System,Cell adhesion in the nervous system; synaptic plasticity.,Winther et al. (2012) (NCAM2 function)
+22,LOC111324979,putative diacyglycerol O-acyltransferase Mb2306,+2.10 (HF),Lipid,"Synthesizes triglycerides (fat storage). Supports ""High Investment"" theory.",Yen et al. (2008) (DGAT function in lipid synthesis)
+23,LOC111332373,trichohyalin-like,+2.11 (HF),Structural,Structural protein; mechanical strength in epithelium.,Lee et al. (1993) (Trichohyalin structure)
+24,LOC111325642,inhibin beta B chain-like,+1.89 (HF),Signaling,TGF-beta family member; regulates cell growth.,Vale et al. (1986) (Inhibins/Activins function)
+25,LOC111330205,supervillin-like,+1.88 (HF),Cytoskeleton,Actin-binding protein; cell motility and adhesion.,Pollock et al. (2016) (Supervillin in mechanosensory cells)
+26,LOC111327419,late secretory pathway protein AVL9 homolog,+1.79 (HF),Transport,Vesicle transport in the secretory pathway.,Harsay & Schekman (2002) (AVL9 in yeast secretion)
+27,LOC111320871,collagen alpha chain-like,+1.84 (HF),Calcification,Structural component of ECM/Skeleton.,Levy et al. (2021)
+28,LOC111328830,uncharacterized LOC111328830,+2.97 (HF),Unknown,Function unknown.,N/A
+29,LOC111339967,uncharacterized LOC111339967,+2.27 (HF),Unknown,Function unknown.,N/A
+30,LOC111329191,uncharacterized LOC111329191,+2.38 (HF),Unknown,Function unknown.,N/A
+31,LOC111327333,fibrillin-1-like,+1.95 (HF),Structural,ECM protein; provides elasticity to tissues.,Drake et al. (2013) (Skeletal proteome)
+32,LOC111341580,mucin-2-like,+2.25 (HF),Immunity/Stress,Mucus production; protects epithelium from pathogens/stress.,Levy et al. (2021) (Secretory cells)
+33,LOC111345232,CUB and sushi domain-containing protein 3-like,+2.22 (HF),Signaling,Often found in peptidases or adhesion molecules.,Mass et al. (2013) (Skeletal organic matrix)
+34,LOC111338999,linear gramicidin synthase subunit D-like,+2.53 (HF),Metabolism,"Peptide synthesis (annotated from bacteria, likely a non-ribosomal peptide synthetase homolog).",Inferred from Protein Family
+35,LOC111323911,uncharacterized LOC111323911,+2.17 (HF),Unknown,Function unknown.,N/A
+36,LOC111346784,GFP-like fluorescent chromoprotein amFP486,+4.76 (HF),Phenotype,The fluorescent protein itself. Validates larval sorting.,Alieva et al. (2008)
+37,LOC111340560,uncharacterized skeletal organic matrix protein 7-like,+2.22 (HF),Calcification,Matrix protein embedded in skeleton; guides crystal growth.,Levy et al. (2021) (Calicoblasts)
+38,LOC111323945,orexin receptor type 1-like,+3.90 (HF),Signaling,G-protein coupled receptor; sensing environmental cues?,Koch et al. (2021) (Cnidarian neuropeptide GPCRs)
+39,LOC111337124,failed axon connections homolog,+1.53 (HF),Nervous System,Axon guidance and development.,UniProt Family (Fax protein)
+40,LOC111344518,GFP-like fluorescent chromoprotein amFP486,+4.19 (HF),Phenotype,Another copy/variant of the fluorescent protein.,Alieva et al. (2008)
+41,LOC111325264,endothelin-converting enzyme homolog,+2.58 (HF),Metabolism,Protease; processes peptide hormones.,Turner & Tanzawa (1997) (ECE family review)
+42,LOC111323862,inactive tyrosine-protein kinase transmembrane receptor ROR1-like,+2.63 (HF),Signaling,Wnt/ROR signaling receptor; developmental patterning.,Levy et al. (2021)
+43,LOC111340822,biliverdin reductase A-like,+1.73 (HF),Antioxidant,Converts biliverdin to bilirubin (potent antioxidant). Heme metabolism.,Mancuso et al. (2024) (BVR/Bilirubin antioxidant axis)
+44,LOC111346562,uncharacterized LOC111346562,-1.49 (NF),Unknown,Function unknown.,N/A
+45,LOC111340635,angiopoietin-related protein 7-like,+3.96 (HF),Signaling,Vascular/tissue remodeling; ECM interaction.,UniProt Family (ANGPTL7)
+46,LOC111323092,palmitoyltransferase AKR1-like,-2.48 (NF),Signaling,"Adds fatty acids to proteins (palmitoylation), affecting their localization.",UniProt Family (DHHC domain)
+47,LOC111320024,MAM and LDL-receptor class A domain-containing protein 1-like,+2.75 (HF),Signaling,Cell surface receptor; potentially involved in endocytosis or signaling.,Mass et al. (2013) (Skeletal matrix proteins)
+48,LOC111335460,uncharacterized LOC111335460,+2.85 (HF),Unknown,Function unknown.,N/A
+49,LOC111336828,solute carrier family 12 member 1-like,-1.02 (NF),Transport,Ion transporter (Na/K/Cl); osmoregulation.,Hebert et al. (2004) (SLC12 family function)
+50,LOC111333735,hemicentin-1-like,+2.40 (HF),Structural,ECM protein; stabilizes basement membranes.,Vogel & Hedgecock (2001) (Hemicentin in C. elegans)
+51,LOC111345167,uncharacterized LOC111345167,+2.47 (HF),Unknown,Function unknown.,N/A
+52,LOC111328831,uncharacterized LOC111328831,+4.36 (HF),Unknown,Function unknown.,N/A
+53,LOC111332739,"sushi, von Willebrand factor type A, EGF...",+2.90 (HF),Calcification,Contains domains found in Skeletal Organic Matrix proteins (SOM).,Mass et al. (2013)
+54,LOC111337461,glutamic acid-rich protein-like,+2.16 (HF),Calcification,Acid-rich proteins often bind calcium in the skeleton (CARPs).,Mass et al. (2013)
+55,LOC111330856,cysteine-rich motor neuron 1 protein-like,+2.98 (HF),Nervous System,Motor neuron development; movement?,UniProt Family (CRIM1)
+56,LOC111342023,receptor-type tyrosine-protein phosphatase epsilon-like,+1.68 (HF),Signaling,Regulates cell signaling by removing phosphate groups.,Andersen et al. (2001) (PTP epsilon function)
+57,LOC111328662,nucleolin-like,-1.31 (NF),Cell Growth,Ribosome biogenesis; cell proliferation marker.,Levy et al. (2021) (Proliferative cells)
+58,LOC111334459,vacuolar protein sorting-associated protein 13D-like,+1.92 (HF),Transport,Intracellular protein trafficking.,Velayos-Baeza et al. (2004) (VPS13D function)
+59,LOC111342654,adenosine receptor A3-like,+5.21 (HF),Signaling,GPCR; responds to adenosine (stress/metabolic signal).,Gessi et al. (2008) (Adenosine receptors review)
+60,LOC111346087,fatty acyl-CoA reductase 1-like,+1.75 (HF),Lipid,Lipid metabolism; synthesis of fatty alcohols/waxes.,Cheng & Russell (2004) (FAR1 function)
+61,LOC111320816,collagen alpha-1(I) chain-like,+4.03 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+62,LOC111343259,piggyBac transposable element-derived protein 4-like,+1.82 (HF),DNA Regulation,Transposable element; may regulate gene expression.,Sarkar et al. (2003) (PiggyBac transposons)
+63,LOC111320781,collagen alpha-1(VII) chain-like,+2.05 (HF),Calcification,Structural ECM/Skeleton component (Anchoring fibrils).,Levy et al. (2021)
+64,LOC111337480,uncharacterized LOC111337480,+2.43 (HF),Unknown,Function unknown.,N/A
+65,LOC111327303,temperature-induced lipocalin-1-like,+1.80 (HF),Stress,Binds lipids; protects membranes during heat stress.,Kenkel et al. (2013)
+66,LOC111324621,neuronal pentraxin-1-like,+3.05 (HF),Nervous System,Synaptic remodeling; clearance of synaptic debris.,Kovács et al. (2020) (Neuronal pentraxins and C1q)
+67,LOC111340887,apoptosis regulator R1-like,+1.31 (HF),Stress,Regulates programmed cell death (anti-apoptotic?).,Levy et al. (2021) (Stress modules)
+68,LOC111338219,MAM and LDL-receptor class A domain-containing protein 1-like,+2.50 (HF),Signaling,Receptor; signaling or endocytosis.,Mass et al. (2013)
+69,LOC111343638,collagen alpha-2(IX) chain-like,+2.41 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+70,LOC111327802,ribose-phosphate pyrophosphokinase 2-like,+2.06 (HF),Metabolism,Nucleotide synthesis (purines/pyrimidines).,Becker et al. (1996) (PRPP synthase function)
+71,LOC111318839,uncharacterized LOC111318839,+1.98 (HF),Unknown,Function unknown.,N/A
+72,LOC111332308,collagen alpha-1(I) chain-like,+2.04 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+73,LOC111333986,zinc metalloproteinase nas-4-like,+1.90 (HF),ECM Remodeling,Degrades ECM; tissue remodeling during settlement.,Park et al. (2010) (NAS-4 in C. elegans molting)
+74,LOC111324935,matrix metalloproteinase-25-like,+1.64 (HF),ECM Remodeling,Degrades ECM; tissue remodeling.,Vandooren et al. (2013) (MMP-25 function)
+75,LOC111338211,MAM and LDL-receptor class A domain-containing protein 1-like,+2.78 (HF),Signaling,Receptor; signaling or endocytosis.,Mass et al. (2013)
+76,LOC111332732,CUB and sushi domain-containing protein 1-like,+2.38 (HF),Signaling,Adhesion or signaling.,Drake et al. (2013)
+77,LOC111320822,collagen alpha-1(I) chain-like,+1.98 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+78,LOC111327252,alpha-2-macroglobulin-like,+2.05 (HF),Immunity,Protease inhibitor; traps pathogen proteases.,Levy et al. (2021)
+79,LOC111343440,methyltransferase-like protein 25,+1.88 (HF),Gene Reg,Methylation (epigenetic or protein modification).,Inferred from Protein Family
+80,LOC111343442,uncharacterized LOC111343442,+1.85 (HF),Unknown,Function unknown.,N/A
+81,LOC111346891,heme-binding protein 2-like,+3.03 (HF),Stress,Binds heme/porphyrins; prevents oxidative damage.,Ishikawa et al. (2005) (HEBP2 function)
+82,LOC111340194,lysosomal acid lipase/cholesteryl ester hydrolase-like,+1.99 (HF),Lipid,Breaks down stored lipids for energy.,Levy et al. (2021) (Gastrodermis)
+83,LOC111340891,collagen alpha-1(I) chain-like,+1.40 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+84,LOC111343017,glycine receptor subunit alphaZ1-like,+2.00 (HF),Nervous System,Neurotransmitter receptor.,Lynch (2004) (Glycine receptor review)
+85,LOC111320821,collagen alpha-1(I) chain-like,+1.83 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+86,LOC111331324,fibulin-1-like,+3.29 (HF),Structural,ECM protein; structure and elasticity.,Inferred from Protein Family
+87,LOC111325783,A disintegrin and metalloproteinase with thrombospondin motifs adt-1-like,-1.30 (NF),ECM Remodeling,ADAMTS family; ECM degradation/processing.,Kelwick et al. (2015) (ADAMTS review)
+88,LOC111328433,filamin-A-like,-1.41 (NF),Cytoskeleton,Actin-binding protein; cell structure.,Levy et al. (2021)
+89,LOC111328602,fork head domain-containing protein FD5-like,-1.58 (NF),Development,Fox transcription factor; cell growth/differentiation.,Levy et al. (2021)
+90,LOC111335819,group XV phospholipase A2-like,+2.14 (HF),Lipid,Cleaves fatty acids from phospholipids; signaling.,Lambeau & Gelb (2008) (PLA2 superfamily)
+91,LOC111329755,soma ferritin-like,+1.72 (HF),Stress,Sequesters iron; prevents oxidative stress (ROS).,Palmer et al. (2009)
+92,LOC111324504,uncharacterized LOC111324504,+2.14 (HF),Unknown,Function unknown.,N/A
+93,LOC111324008,uncharacterized LOC111324008,-1.33 (NF),Unknown,Function unknown.,N/A
+94,LOC111335366,SH3 and PX domain-containing protein 2A-like,-1.44 (NF),Signaling,Cell adhesion and migration (podorosomes).,Tehrani et al. (2006) (Tks5/SH3PXD2A function)
+95,LOC111323023,uncharacterized LOC111323023,+2.53 (HF),Unknown,Function unknown.,N/A
+96,LOC111336974,low-density lipoprotein receptor-related protein 8-like,-1.08 (NF),Signaling,Reelin signaling; neuronal migration.,Herz & Chen (2006) (LRP8 function)
+97,LOC111322288,uncharacterized LOC111322288,+2.36 (HF),Unknown,Function unknown.,N/A
+98,LOC111345786,uncharacterized LOC111345786,+1.53 (HF),Unknown,Function unknown.,N/A
+99,LOC111327418,probable indole-3-acetic acid-amido synthetase GH3.9,+3.18 (HF),Signaling,Auxin-like hormone metabolism (common in symbiosis?).,Staswick et al. (2005) (GH3 family function)
+100,LOC111330066,uncharacterized LOC111330066,+2.59 (HF),Unknown,Function unknown.,N/A
+101,LOC111336934,latent-transforming growth factor beta-binding protein 3-like,+1.83 (HF),Signaling,TGF-beta regulation; matrix organization.,Robertson et al. (2015) (LTBP function)
+102,LOC111332789,uncharacterized LOC11132789,+1.86 (HF),Unknown,Function unknown.,N/A
+103,LOC111333170,uncharacterized LOC111333170,-2.01 (NF),Unknown,Function unknown.,N/A
+104,LOC111320952,trypsin-like,+2.17 (HF),Metabolism,Protease; digestion or activation of proteins.,Inferred from Protein Family
+105,LOC111326885,allene oxide synthase-lipoxygenase protein-like,-1.26 (NF),Immunity,Synthesis of allene oxide (prostaglandin-like) signaling molecules.,Levy et al. (2021)
+106,LOC111324993,72 kDa type IV collagenase-like,+1.27 (HF),ECM Remodeling,MMP2; degrades collagen type IV (basement membrane).,Massova et al. (1998) (MMP2 structure/function)
+107,LOC111335314,uncharacterized LOC111335314,+2.45 (HF),Unknown,Function unknown.,N/A
+108,LOC111334934,transforming growth factor-beta-induced protein ig-h3-like,+2.25 (HF),Signaling,Cell adhesion; response to TGF-beta.,Thapa et al. (2007) (TGFBI function)
+109,LOC111319860,low-density lipoprotein receptor-related protein 6-like,+3.20 (HF),Signaling,Wnt signaling co-receptor.,Tamai et al. (2000) (LRP6 in Wnt signaling)
+110,LOC111328749,cobra venom factor-like,+2.30 (HF),Immunity,Complement system homolog.,Levy et al. (2021) (Immune cells)
+111,LOC111330589,monocarboxylate transporter 10-like,+1.49 (HF),Metabolism,Transports lactate/pyruvate; energy mobilization.,Levy et al. (2021)
+112,LOC111343161,uncharacterized LOC111343161,+2.72 (HF),Unknown,Function unknown.,N/A
+113,LOC111338572,uncharacterized LOC111338572,-1.20 (NF),Unknown,Function unknown.,N/A
+114,LOC111338858,uncharacterized LOC111338858,-2.74 (NF),Unknown,Function unknown.,N/A
+115,LOC111335693,integrin alpha-9-like,+1.29 (HF),Adhesion,Cell-ECM adhesion; settlement?,Knop et al. (2012)
+116,LOC111321843,hemicentin-1-like,+1.86 (HF),Structural,ECM protein; basement membrane.,Vogel & Hedgecock (2001)
+117,LOC111331440,uncharacterized LOC111331440,-1.04 (NF),Unknown,Function unknown.,N/A
+118,LOC111325671,uncharacterized LOC111325671,+2.28 (HF),Unknown,Function unknown.,N/A
+119,LOC111343910,uncharacterized LOC111343910,+1.96 (HF),Unknown,Function unknown.,N/A
+120,LOC111326602,transmembrane protein 205-like,+2.58 (HF),Unknown,Transmembrane protein.,Inferred from Protein Family
+121,LOC111325186,gamma-aminobutyric acid type B receptor subunit 2-like,-1.43 (NF),Nervous System,GABA receptor (inhibitory neurotransmission).,Gassmann et al. (2004) (GABA-B structure)
+122,LOC111327625,tissue inhibitor of metalloproteinase-like,+2.64 (HF),ECM Remodeling,TIMP; regulates MMPs (prevents excessive tissue damage).,Brew & Nagase (2010) (TIMP function)
+123,LOC111346802,uncharacterized LOC111346802,+1.70 (HF),Unknown,Function unknown.,N/A
+124,LOC111341087,homeobox protein Hox-B4a-like,+3.66 (HF),Development,Anterior-posterior patterning.,Veroff et al. (2017)
+125,LOC111337489,uncharacterized LOC111337489,+2.44 (HF),Unknown,Function unknown.,N/A
+126,LOC111322400,peroxidasin homolog,-1.51 (NF),Stress / ECM,Crosslinks collagen; uses H2O2.,Fidler et al. (2014)
+127,LOC111335321,lactadherin-like,+2.41 (HF),Signaling,Phagocytosis of apoptotic cells?,Hanayama et al. (2002) (Lactadherin function)
+128,LOC111322266,gamma-interferon-inducible lysosomal thiol reductase-like,+1.99 (HF),Immunity,Antigen processing; reduction of disulfide bonds in lysosomes.,Arunachalam et al. (2000) (GILT function)
+129,LOC111320820,collagen alpha-1(I) chain-like,+2.20 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+130,LOC111320842,collagen alpha-1(III) chain-like,+2.26 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+131,LOC111323897,flocculation protein FLO11-like,+2.44 (HF),Adhesion,"Cell adhesion (yeast homolog, function in coral unclear but likely adhesion).",Verstrepen & Klis (2006) (Flocculins)
+132,LOC111326654,homeobox protein GBX-2-like,+2.60 (HF),Development,CNS development; anterior patterning.,Wassarman et al. (1997) (Gbx2 function)
+133,LOC111336667,cell wall integrity and stress response component 4-like,+3.11 (HF),Stress,Stress response?,Inferred from Protein Family
+134,LOC111343618,uncharacterized LOC111343618,-1.17 (NF),Unknown,Function unknown.,N/A
+135,LOC111326934,CSC1-like protein ERD4,+1.50 (HF),Transport,Calcium permeable cation channel?,Hou et al. (2014) (CSC1 as OSCA channel)
+136,LOC111342143,Niemann-Pick C1 protein-like,+1.50 (HF),Symbiosis,Intracellular cholesterol transport/trafficking.,Levy et al. (2021)
+137,LOC111333478,coagulation factor V-like,+1.86 (HF),Immunity/Blood,Coagulation homolog; immunity or wound healing.,Mann & Kalafatis (2003) (Factor V)
+138,LOC111340883,transcription factor Sox-21-B-like,+2.08 (HF),Development,Neurogenesis; Sox family transcription factor.,Levy et al. (2021)
+139,LOC111331389,"dynein heavy chain 1, axonemal-like",-1.02 (NF),Cilia,Ciliary movement (swimming).,Pfister et al. (2006) (Dynein function)
+140,LOC111321489,collagen alpha-1(I) chain-like,+1.34 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+141,LOC111336312,tropomyosin alpha-4 chain-like,+2.05 (HF),Cytoskeleton,Actin filament binding; muscle contraction or cell structure.,Gunning et al. (2005) (Tropomyosin review)
+142,LOC111342832,transmembrane protein 249-like,+3.95 (HF),Unknown,Transmembrane protein.,Inferred from Protein Family
+143,LOC111330775,2-acylglycerol O-acyltransferase 1-like,+2.39 (HF),Lipid,Triglyceride synthesis; lipid storage.,Yen et al. (2008) (DGAT function)
+144,LOC111320688,uncharacterized LOC111320688,+2.74 (HF),Unknown,Function unknown.,N/A
+145,LOC111337453,uncharacterized LOC111337453,+2.80 (HF),Unknown,Function unknown.,N/A
+146,LOC111322161,melanotransferrin-like,+1.48 (HF),Iron Transport,Iron binding/transport; antioxidant?,Richardson (2000) (Melanotransferrin function)
+147,LOC111343643,uncharacterized LOC111343643,+2.50 (HF),Unknown,Function unknown.,N/A
+148,LOC111340398,fascin-like,+1.48 (HF),Cytoskeleton,Actin bundling; filopodia formation.,Kureishy et al. (2002) (Fascin function)
+149,LOC111339275,fibroblast growth factor receptor 1-like,+1.26 (HF),Signaling,FGFR signaling; cell proliferation/differentiation.,Ornitz & Itoh (2015) (FGF signaling)
+150,LOC111345144,tyrosine-protein phosphatase Lar-like,+1.33 (HF),Signaling,Neural development; axon guidance.,Stoker (2001) (LAR PTPs in development)
+151,LOC111331664,long-chain-fatty-acid--CoA ligase 4-like,+1.39 (HF),Lipid,Fatty acid metabolism (activation for breakdown or synthesis).,Soupene & Kuypers (2008) (ACSL family)
+152,LOC111334640,uncharacterized LOC111334640,+1.78 (HF),Unknown,Function unknown.,N/A
+153,LOC111333875,probable N-acetyltransferase CML1,+1.99 (HF),Metabolism,Acetylation of substrates.,Inferred from Protein Family
+154,LOC111334156,uncharacterized LOC111334156,+1.14 (HF),Unknown,Function unknown.,N/A
+155,LOC111338412,peroxidasin homolog,+1.98 (HF),Stress / ECM,Crosslinks collagen; uses H2O2.,Fidler et al. (2014)
+156,LOC111339975,uncharacterized LOC111339975,+1.86 (HF),Unknown,Function unknown.,N/A
+157,LOC111343773,short-chain collagen C4-like,+2.26 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+158,LOC111341530,uncharacterized LOC111341530,+1.50 (HF),Unknown,Function unknown.,N/A
+159,LOC111322549,uncharacterized LOC111322549,+2.40 (HF),Unknown,Function unknown.,N/A
+160,LOC111323999,uncharacterized LOC111323999,-1.26 (NF),Unknown,Function unknown.,N/A
+161,LOC111324983,72 kDa type IV collagenase-like,+1.37 (HF),ECM Remodeling,MMP2; collagen degradation.,Massova et al. (1998)
+162,LOC111341018,uncharacterized LOC111341018,+1.30 (HF),Unknown,Function unknown.,N/A
+163,LOC111339600,uncharacterized LOC111339600,+2.30 (HF),Unknown,Function unknown.,N/A
+164,LOC111333901,leucine-rich repeats and immunoglobulin-like domains protein 1,+2.16 (HF),Signaling,LRR/Ig domains; likely adhesion or receptor.,Schreiner et al. (2010) (LIG family)
+165,LOC111318838,uncharacterized LOC111318838,+3.20 (HF),Unknown,Function unknown.,N/A
+166,LOC111321759,laminin subunit gamma-1-like,+1.52 (HF),Structural,Basement membrane component.,Levy et al. (2021)
+167,LOC111322311,ELKS/Rab6-interacting/CAST family member 1-like,+1.27 (HF),Transport,Vesicle trafficking; presynaptic active zone.,Ohtsuka et al. (2002) (CAST function)
+168,LOC111336209,zinc finger CCHC domain-containing protein 24-like,+1.57 (HF),Gene Reg,RNA binding or regulation.,Inferred from Protein Family
+169,LOC111332117,BMP-binding endothelial regulator protein-like,+2.31 (HF),Signaling,BMP signaling modulation.,Moser et al. (2003) (BMPER function)
+170,LOC111333613,microtubule-associated protein futsch-like,+1.52 (HF),Cytoskeleton,Microtubule organization; neuronal.,Hummel et al. (2000) (Futsch in Drosophila)
+171,LOC111337892,polycystic kidney disease protein 1-like 2,-1.29 (NF),Signaling,Mechanosensation; calcium signaling.,Vogler et al. (2006) (PKD1L2)
+172,LOC111340608,lipoxygenase homology domain-containing protein 1-like,-1.18 (NF),Immunity,Lipid signaling (eicosanoids).,Kuhn & O'Donnell (2006) (Lipoxygenase review)
+173,LOC111339663,uncharacterized LOC111339663,+1.82 (HF),Unknown,Function unknown.,N/A
+174,LOC111346317,protein-glucosylgalactosylhydroxylysine glucosidase-like,+2.00 (HF),Metabolism,Collagen processing (post-translational modification).,Schechter et al. (2005) (PGGHG function)
+175,LOC111327581,putative N-acetylated-alpha-linked acidic dipeptidase,+1.35 (HF),Metabolism,Peptidase.,Inferred from Protein Family
+176,LOC111321847,centromere-associated protein E-like,+1.47 (HF),Cell Cycle,Mitosis; chromosome segregation.,Yen et al. (1992) (CENP-E function)
+177,LOC111338418,mannan-binding lectin serine protease 1-like,+2.89 (HF),Immunity,Lectin pathway of complement activation.,Levy et al. (2021)
+178,LOC111330767,filamin-A-like,+1.33 (HF),Cytoskeleton,Actin cross-linking.,Levy et al. (2021)
+179,LOC111321709,retinal homeobox protein Rx1-like,-1.21 (NF),Development,Homeobox; eye development (in bilateria).,Mathers et al. (1997) (Rx homeobox function)
+180,LOC111338651,uncharacterized LOC111338651,+2.48 (HF),Unknown,Function unknown.,N/A
+181,LOC111338856,uncharacterized LOC111338856,-1.03 (NF),Unknown,Function unknown.,N/A
+182,LOC111340366,sorting nexin-17-like,+1.28 (HF),Transport,Endosomal recycling.,Worby & Dixon (2002) (Sorting nexins)
+183,LOC111328428,uncharacterized LOC111328428,-1.09 (NF),Unknown,Function unknown.,N/A
+184,LOC111329225,uncharacterized LOC111329225,+2.95 (HF),Unknown,Function unknown.,N/A
+185,LOC111322987,putative histone-lysine N-methyltransferase PRDM6,+1.20 (HF),Gene Reg,Epigenetic regulation (histone methylation).,Davis et al. (2006) (PRDM6 function)
+186,LOC111323527,transient receptor potential cation channel subfamily M member 2-like,-1.14 (NF),Signaling,Ion channel (TRPM); oxidative stress sensing?,Hara et al. (2002) (TRPM2 and oxidative stress)
+187,LOC111327334,fibrillin-3-like,+1.62 (HF),Structural,ECM microfibrils.,Corson et al. (2004) (Fibrillin-3)
+188,LOC111324410,protein phosphatase 1 regulatory subunit 3B-B-like,-1.14 (NF),Signaling,Phosphatase regulation; glycogen metabolism.,Ceulemans & Bollen (2004) (PP1 regulation)
+189,LOC111320751,collagen alpha-1(I) chain-like,+2.02 (HF),Calcification,Structural ECM/Skeleton component.,Levy et al. (2021)
+190,LOC111325942,plexin domain-containing protein 2-like,-1.63 (NF),Signaling,Semaphorin receptor; axon guidance.,Tamagnone et al. (1999) (Plexins)
+191,LOC111340820,uncharacterized LOC111340820,+1.34 (HF),Unknown,Function unknown.,N/A
+192,LOC111345133,monocarboxylate transporter 10-like,+1.91 (HF),Metabolism,Lactate/Pyruvate transport.,Levy et al. (2021)
+193,LOC111321665,uncharacterized LOC111321665,+2.16 (HF),Unknown,Function unknown.,N/A
+194,LOC111336924,uncharacterized LOC111336924,-1.07 (NF),Unknown,Function unknown.,N/A
+195,LOC111333911,thrombospondin-1-like,+2.57 (HF),Signaling,ECM glycoprotein; cell-matrix interaction/angiogenesis.,Levy et al. (2021)
+196,LOC111342077,putative sodium-coupled neutral amino acid transporter 7,+2.23 (HF),Transport,Amino acid transport.,Mackenzie & Erickson (2004) (SNAT7 function)
+197,LOC111327414,major facilitator superfamily domain-containing protein 12-like,+1.69 (HF),Transport,Membrane transporter.,Pao et al. (1998) (MFS transporters)
+198,LOC111339122,homeobox protein BarH-like 2,+2.30 (HF),Development,Homeobox transcription factor.,Higashijima et al. (1992) (BarH function)
+199,LOC111321680,fibrillin-2-like,+2.12 (HF),Structural,ECM microfibrils.,Drake et al. (2013)
+200,LOC111339304,echinoderm microtubule-associated protein-like 6,-1.15 (NF),Cytoskeleton,Microtubule binding.,Suprenant et al. (2000) (EMAP function)
+201,LOC111322068,uncharacterized LOC111322068,+2.03 (HF),Unknown,Function unknown.,N/A
+202,LOC111344634,growth arrest-specific protein 1-like,+1.89 (HF),Signaling,Hedgehog signaling antagonist?,Martinelli & Fan (2007) (GAS1 in Hedgehog)
+203,LOC111321593,atrial natriuretic peptide receptor 1-like,+1.54 (HF),Signaling,Guanylate cyclase receptor; fluid/ion balance?,Potter et al. (2006) (Natriuretic peptide receptors)
+204,LOC111323777,uncharacterized LOC111323777,+1.82 (HF),Unknown,Function unknown.,N/A
+205,LOC111346320,long-chain-fatty-acid--CoA ligase 1-like,+1.32 (HF),Lipid,Fatty acid activation (metabolism).,Soupene & Kuypers (2008)
+206,LOC111336425,beta-galactosidase-like,+2.75 (HF),Metabolism,Carbohydrate metabolism.,UniProt Family (GLB1)
+207,LOC111336930,monocarboxylate transporter 10-like,-1.23 (NF),Metabolism,Lactate/Pyruvate transport.,Levy et al. (2021)
+208,LOC111333893,uncharacterized LOC111333893,+2.88 (HF),Unknown,Function unknown.,N/A
+209,LOC111327210,glutamine synthetase-like,+1.24 (HF),Symbiosis,Nitrogen assimilation/recycling.,Levy et al. (2021)
+210,LOC111334796,uncharacterized LOC111334796,+1.68 (HF),Unknown,Function unknown.,N/A
+211,LOC111343966,agrin-like,+1.82 (HF),Nervous System,Neuromuscular junction formation (synaptic basal lamina).,Bezakova & Ruegg (2003) (Agrin function)
+212,LOC111332747,CUB and sushi domain-containing protein 3-like,+1.80 (HF),Signaling,Adhesion/Signaling.,Mass et al. (2013)
+213,LOC111330854,uncharacterized LOC111330854,+1.81 (HF),Unknown,Function unknown.,N/A
+214,LOC111346591,uncharacterized LOC111346591,+2.17 (HF),Unknown,Function unknown.,N/A
+215,LOC111338573,E3 ubiquitin-protein ligase TRIM71-like,-2.04 (NF),Protein Reg,Ubiquitination/degradation; stem cell maintenance (lin-41).,Rybak et al. (2009) (TRIM71/Lin41 function)
+216,LOC111344195,chromosome alignment-maintaining phosphoprotein 1-like,-1.06 (NF),Cell Cycle,Mitosis; kinetochore function.,Itoh et al. (2009) (CAMP function)
+217,LOC111322871,uncharacterized LOC111322871,-1.11 (NF),Unknown,Function unknown.,N/A
+218,LOC111331303,cytosolic phospholipase A2-like,-1.11 (NF),Lipid/Signal,Arachidonic acid release; inflammation/immunity.,Leslie (2015) (cPLA2 function)
+219,LOC111340617,cartilage intermediate layer protein 2-like,+2.45 (HF),Structural,ECM protein; cartilage-like?,Lorenzo et al. (1998) (CILP function)
+220,LOC111327248,major facilitator superfamily domain-containing protein 12-like,+1.32 (HF),Transport,Membrane transporter.,Pao et al. (1998)
+221,LOC111337259,monocarboxylate transporter 13-like,+1.63 (HF),Metabolism,Lactate/Pyruvate transport.,Levy et al. (2021)
+222,LOC111323636,complement C3-like,+3.77 (HF),Immunity,Innate immunity.,Levy et al. (2021)
+223,LOC111325560,gamma-glutamyl hydrolase-like,+1.20 (HF),Metabolism,Folate metabolism.,Levy et al. (2021)
+224,LOC111331279,gastric intrinsic factor-like,+1.75 (HF),Metabolism,Vitamin B12 absorption (Cobalamin binding).,Alpers & Russell-Jones (2013) (Intrinsic factor)
+225,LOC111338692,uncharacterized LOC111338692,+2.31 (HF),Unknown,Function unknown.,N/A
+226,LOC111326544,proprotein convertase subtilisin/kexin type 4-like,+3.67 (HF),Metabolism,Proprotein processing (PCSK4 often reproductive).,Mbikay et al. (1997) (PCSK4 function)
+227,LOC111330113,E3 ubiquitin-protein ligase RGLG5-like,-1.76 (NF),Protein Reg,Ubiquitination.,Inferred from Protein Family
+228,LOC111335732,uncharacterized LOC111335732,+1.13 (HF),Unknown,Function unknown.,N/A
+229,LOC111331825,uncharacterized LOC111331825,-1.14 (NF),Unknown,Function unknown.,N/A
+230,LOC111340872,gastric triacylglycerol lipase-like,+1.39 (HF),Lipid,Fat digestion/breakdown.,Carriere et al. (1994) (Gastric lipase)
+231,LOC111321178,vitellogenin-like,+1.27 (HF),Energy / Lipid,Yolk protein; high maternal investment.,Levy et al. (2021)
+232,LOC111320938,mRNA decay activator protein ZFP36L1-like,+1.34 (HF),Gene Reg,RNA stability/decay.,Baou et al. (2009) (ZFP36 family function)
+233,LOC111339822,alpha-2A adrenergic receptor-like,-1.05 (NF),Signaling,GPCR; neurotransmitter receptor.,Hein (2006) (Adrenergic receptors)
+234,LOC111345906,uncharacterized LOC111345906,+3.28 (HF),Unknown,Function unknown.,N/A
+235,LOC111341777,basement membrane-specific heparan sulfate proteoglycan core protein-like,+1.82 (HF),Structural,Perlecan? Basement membrane structure.,Murdoch et al. (1992) (Perlecan)
+236,LOC111346592,MAM and LDL-receptor class A domain-containing protein 1-like,+2.38 (HF),Signaling,Receptor; signaling or endocytosis.,Mass et al. (2013)
+237,LOC111328588,uncharacterized LOC111328588,+1.42 (HF),Unknown,Function unknown.,N/A
+238,LOC111322261,gamma-interferon-inducible lysosomal thiol reductase-like,+1.88 (HF),Immunity,Antigen processing (GILT).,Arunachalam et al. (2000)
+239,LOC111331219,dynein heavy chain domain-containing protein 1-like,-1.13 (NF),Cilia,Ciliary function/transport.,Inferred from Protein Family
+240,LOC111322256,uncharacterized LOC111322256,+1.55 (HF),Unknown,Function unknown.,N/A
+241,LOC111328517,ras-associated and pleckstrin homology domains-containing protein 1-like,+1.16 (HF),Signaling,Ras signaling; cytoskeletal organization (LRIF1?).,Inferred from Protein Family
+242,LOC111322597,D-amino-acid oxidase-like,-1.16 (NF),Metabolism,Oxidizes D-amino acids; produces H2O2.,Pollegioni et al. (2007) (DAAO function)
+243,LOC111321894,gelsolin-like protein 2,+1.16 (HF),Cytoskeleton,Actin filament severing/capping.,McGough et al. (2003) (Gelsolin family)
+244,LOC111324532,trace amine-associated receptor 7h-like,+2.45 (HF),Signaling,GPCR; sensory receptor?,Berry (2004) (TAAR function)
+245,LOC111332887,cytochrome P450 1A1-like,-1.64 (NF),Detoxification,Xenobiotic metabolism / Drug metabolism.,Goldstone et al. (2006) (CYP function)
+246,LOC111322209,uncharacterized LOC111322209,+1.38 (HF),Unknown,Function unknown.,N/A
+247,LOC111336589,uncharacterized LOC111336589,+2.38 (HF),Unknown,Function unknown.,N/A
+248,LOC111323093,selenoprotein Pb-like,+1.76 (HF),Stress,Selenoprotein; antioxidant defense?,Labunskyy et al. (2014) (Selenoproteins)
+249,LOC111334900,multidrug resistance protein 1-like,+2.11 (HF),Transport,ABC transporter; efflux of toxins/xenobiotics.,Higgins (2007) (MDR1/ABC transporters)
+250,LOC111342546,uncharacterized LOC111342546,+2.65 (HF),Unknown,Function unknown.,N/A
+251,LOC111330251,sodium-coupled monocarboxylate transporter 1-like,+1.51 (HF),Metabolism,Lactate/Pyruvate/Butyrate transport.,Ganapathy et al. (2008) (SMCT1 function)
+252,LOC111322526,putative histone-lysine N-methyltransferase PRDM6,+2.50 (HF),Gene Reg,Epigenetics.,Davis et al. (2006)
+253,LOC111324945,stromelysin-1-like,+2.23 (HF),ECM Remodeling,MMP3; degrades ECM components.,Nagase et al. (2006) (MMPs review)
+254,LOC111322678,uncharacterized LOC111322678,+1.07 (HF),Unknown,Function unknown.,N/A
+255,LOC111338776,pancreas/duodenum homeobox protein 1-like,+2.19 (HF),Development,Pdx1; endoderm patterning (in bilateria).,Jonsson et al. (1994) (Pdx1 function)
+256,LOC111341825,cytochrome b-245 heavy chain-like,-1.35 (NF),Stress/Immunity,NADPH oxidase component; generates superoxide (ROS) for immune defense?,Babior (1999) (NADPH oxidase)
+257,LOC111325851,paired box protein Pax-3-B-like,-1.03 (NF),Development,Pax transcription factor; development.,Buckingham & Relaix (2007) (Pax3 function)
+258,LOC111340840,organic cation transporter protein-like,+3.00 (HF),Transport,"Transport of organic cations (drugs, toxins, endogenous compounds).",Koepsell et al. (2007) (OCT function)
+259,LOC111332138,uncharacterized LOC111332138,+2.02 (HF),Unknown,Function unknown.,N/A
+260,LOC111321502,endothelin-converting enzyme homolog,+1.69 (HF),Metabolism,Protease.,Turner & Tanzawa (1997)
+261,LOC111340901,growth factor receptor-bound protein 14-like,+1.18 (HF),Signaling,Insulin signaling adapter (Grb14).,Holt & Siddle (2005) (Grb14 function)
+262,LOC111321403,calumenin-like,+1.15 (HF),Calcification,Calcium-binding protein (CREC family); Ca2+ homeostasis in ER.,Levy et al. (2021)
+263,LOC111325220,uncharacterized LOC111325220,+1.39 (HF),Unknown,Function unknown.,N/A
+264,LOC111327570,uncharacterized LOC111327570,+1.64 (HF),Unknown,Function unknown.,N/A
+265,LOC111333012,carbonic anhydrase 2-like,+1.06 (HF),Calcification,Bicarbonate formation for skeleton.,Bertucci et al. (2011)
+266,LOC111327223,uncharacterized LOC111327223,-2.09 (NF),Unknown,Function unknown.,N/A
+267,LOC111328589,agrin-like,+1.76 (HF),Nervous System,Synaptic basal lamina.,Bezakova & Ruegg (2003)
+268,LOC111339268,keratin-associated protein 10-6-like,+2.74 (HF),Structural,"Cytoskeleton/Structure? (Keratins usually absent in Cnidaria, likely intermediate filament).",Inferred from Protein Family
+269,LOC111331301,zinc finger protein ZIC 2-like,+2.80 (HF),Development,Neural crest/Neural plate development (bilateria).,Aruga (2004) (Zic family function)
+270,LOC111328207,prothrombin-like,+1.76 (HF),Immunity/Blood,Coagulation homolog.,Davie et al. (1991) (Prothrombin)
+271,LOC111336722,spondin-2-like,-1.00 (NF),Immunity,Pattern recognition receptor; ECM protein (Mindin).,He et al. (2004) (Spondin-2 immunity)
+272,LOC111328120,hephaestin-like protein,+1.43 (HF),Iron Metabolism,Copper-dependent ferroxidase; iron efflux (with ferroportin).,Palmer et al. (2009)
+273,LOC111343451,proprotein convertase subtilisin/kexin type 5-like,+2.19 (HF),Metabolism,Proprotein processing.,Mbikay et al. (1997)
+274,LOC111329699,mucin-2-like,+2.76 (HF),Immunity/Stress,Mucus production.,Levy et al. (2021)
+275,LOC111334113,TNF receptor-associated factor 3-like,+1.53 (HF),Immunity,TRAF3; signaling adapter for TNF receptors (Immunity/Apoptosis).,Hacker et al. (2011) (TRAF3 function)
+276,LOC111333695,cathepsin B-like,+1.18 (HF),Metabolism,Lysosomal protease.,Mort & Buttle (1997) (Cathepsin B)
+277,LOC111334761,protein white-like,+2.20 (HF),Transport,ABC transporter (pigment transport in insects).,Ewart et al. (1994) (White protein function)
+278,LOC111334472,zonadhesin-like,+2.36 (HF),Adhesion,Cell adhesion (often sperm-egg in bilateria).,Hardy & Garbers (1995) (Zonadhesin)
+279,LOC111337898,uncharacterized LOC111337898,+1.15 (HF),Unknown,Function unknown.,N/A
+280,LOC111337168,di-N-acetylchitobiase-like,+1.26 (HF),Metabolism,Chitin degradation? (Glycan processing).,Aronson et al. (1989) (Chitobiase)
+281,LOC111326942,protein CREG1-like,+1.22 (HF),Development,Cellular repressor of E1A-stimulated genes; growth regulation.,Veal et al. (2000) (CREG function)
+282,LOC111326058,plasma membrane calcium-transporting ATPase 2-like,-1.21 (NF),Calcification,PMCA; pumps Calcium out of cytosol (or into calcifying space).,Levy et al. (2021) (Calicoblasts)
+283,LOC111321028,uncharacterized LOC111321028,+1.97 (HF),Unknown,Function unknown.,N/A
+284,LOC111320728,tumor necrosis factor receptor superfamily member 10C-like,+2.99 (HF),Immunity/Death,Decoy receptor for TRAIL; inhibits apoptosis?,Ashkenazi & Dixit (1998) (Death receptors)
+285,LOC111342215,uncharacterized LOC111342215,-1.33 (NF),Unknown,Function unknown.,N/A
+286,LOC111344752,dipeptidyl peptidase 1-like,+2.54 (HF),Metabolism,Cathepsin C; activation of serine proteases.,Turk et al. (2001) (Cathepsin C)
+287,LOC111333767,transcriptional activator GLI3-like,+1.47 (HF),Development,Hedgehog signaling effector.,Ruiz i Altaba (1999) (Gli proteins)
+288,LOC111333580,alkaline phosphatase-like,+1.60 (HF),Calcification,Often associated with calcification (phosphate metabolism).,Drake et al. (2013)
+289,LOC111336999,tumor protein p53-inducible nuclear protein 1-like,+1.05 (HF),Stress,Oxidative stress response (TP53INP1).,Tomasini et al. (2005) (TP53INP1 function)
+290,LOC111335313,uncharacterized LOC111335313,-2.59 (NF),Unknown,Function unknown.,N/A
+291,LOC111323922,uncharacterized LOC111323922,+1.85 (HF),Unknown,Function unknown.,N/A
+292,LOC111319813,cuticle collagen 2C-like,+1.61 (HF),Structural,Collagen-like structural protein.,Drake et al. (2013)
+293,LOC111336488,uncharacterized LOC111336488,+1.81 (HF),Unknown,Function unknown.,N/A
+294,LOC111341830,very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase 2-like,+2.00 (HF),Lipid,Fatty acid elongation.,Jakobsson et al. (2006) (Fatty acid synthesis)
+295,LOC111323127,phospholipid phosphatase 1-like,+1.56 (HF),Lipid,Lipid signaling; dephosphorylation of lipid substrates.,Sciorra & Morris (2002) (LPP function)
+296,LOC111324497,uncharacterized LOC111324497,+1.57 (HF),Unknown,Function unknown.,N/A
+297,LOC111321308,A disintegrin and metalloproteinase with thrombospondin motifs 2-like,+1.29 (HF),ECM Remodeling,ADAMTS2; procollagen processing.,Colige et al. (1997) (ADAMTS2)
+298,LOC111330075,uncharacterized LOC111330075,+2.56 (HF),Unknown,Function unknown.,N/A
+299,LOC111338568,uncharacterized LOC111338568,-1.13 (NF),Unknown,Function unknown.,N/A
+300,LOC111343646,bone morphogenetic protein 7-like,+1.38 (HF),Development,BMP signaling; skeletal development.,Zoccola et al. (2009)
+301,LOC111337462,uncharacterized LOC111337462,+1.81 (HF),Unknown,Function unknown.,N/A
+302,LOC111320921,histamine H2 receptor-like,+2.27 (HF),Signaling,GPCR; neurotransmission or immunomodulation.,Hill et al. (1997) (Histamine receptors)
+303,LOC111332090,probable RNA-dependent RNA polymerase 1,+1.96 (HF),Immunity/Viral,Antiviral defense? (RNA silencing).,Ahlquist (2002) (RdRP function)
+304,LOC111329754,soma ferritin-like,+2.90 (HF),Stress,Iron sequestration; antioxidant.,Palmer et al. (2009)
+305,LOC111344472,T-box transcription factor TBX10-like,+1.92 (HF),Development,Transcription factor.,Papaioannou (2001) (T-box genes)
+306,LOC111321463,arylsulfatase J-like,+2.29 (HF),Metabolism,Sulfatase; degradation of sulfated proteoglycans (ECM).,Hanson et al. (2004) (Sulfatases)
+307,LOC111325968,unconventional myosin-X-like,+1.01 (HF),Cytoskeleton,Myosin; filopodia formation.,Berg et al. (2000) (Myosin X)
+308,LOC111341532,mucin-2-like,+2.50 (HF),Immunity/Stress,Mucus production.,Levy et al. (2021)
+309,LOC111322259,coactosin-like protein,+1.09 (HF),Cytoskeleton,Actin filament binding.,Provost et al. (2001) (Coactosin)
+310,LOC111331858,Down syndrome cell adhesion molecule-like protein 1 homolog,-1.04 (NF),Adhesion,DSCAM; neuronal adhesion/self-avoidance.,Schmucker et al. (2000) (DSCAM function)
+311,LOC111324999,uncharacterized LOC111324999,+2.48 (HF),Unknown,Function unknown.,N/A
+312,LOC111340596,mucin-like protein,+1.43 (HF),Immunity/Stress,Mucus production.,Levy et al. (2021)
+313,LOC111329016,lysosomal alpha-mannosidase-like,+1.02 (HF),Metabolism,Glycoprotein degradation.,Moremen (2002) (Mannosidases)
+314,LOC111322853,junctophilin-3-like,+1.71 (HF),Signaling,Calcium signaling (ER-plasma membrane contact).,Takeshima et al. (2000) (Junctophilins)
+315,LOC111320928,max dimerization protein 1-like,+1.07 (HF),Cell Cycle,Transcription regulator (Myc/Max/Mad network).,Grandori et al. (2000) (Myc/Max network)
+316,LOC111339082,uncharacterized LOC111339082,+1.58 (HF),Unknown,Function unknown.,N/A
+317,LOC111330877,signal transducing adapter molecule 2-like,-1.44 (NF),Signaling,Endosomal sorting (ESCRT complex); signaling.,Endo et al. (2000) (STAM2)
+318,LOC111327558,uncharacterized LOC111327558,-1.05 (NF),Unknown,Function unknown.,N/A
+319,LOC111330961,calretinin-like,+1.23 (HF),Nervous System,Calcium-binding protein; neuronal marker.,Rogers (1987) (Calretinin)
+320,LOC111324308,uncharacterized LOC111324308,+1.86 (HF),Unknown,Function unknown.,N/A
+321,LOC111325880,uncharacterized LOC111325880,+1.69 (HF),Unknown,Function unknown.,N/A
+322,LOC111338912,uncharacterized LOC111338912,+2.24 (HF),Unknown,Function unknown.,N/A
+323,LOC111338848,uncharacterized LOC111338848,+2.20 (HF),Unknown,Function unknown.,N/A
+324,LOC111331736,proto-oncogene c-Fos-like,+1.73 (HF),Gene Reg,Transcription factor (AP-1 complex); immediate early gene (response to stimuli).,Curran & Franza (1988) (Fos/Jun function)
+325,LOC111340622,hemicentin-1-like,+2.28 (HF),Structural,ECM protein.,Vogel & Hedgecock (2001)
