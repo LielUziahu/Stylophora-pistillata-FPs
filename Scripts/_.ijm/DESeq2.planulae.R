@@ -32,11 +32,12 @@ setwd("/home/gospozha/haifa/hiba/pl_align/")
 # list files with gene counts for each sample
 dir = "/home/gospozha/haifa/hiba/pl_align/"
 files = list.files(paste0(dir, "count.tables"), "*ReadsPerGene.out.tab", full.names = T)
-countData = data.frame(fread(files[1]))[c(1,2)]
+files = list.files(paste0(dir, "count.tables.old"), "*ReadsPerGene.out.tab", full.names = T)
+countData = data.frame(fread(files[1]))[c(1,3)]
 
 # looping and reading the 2nd column from the remaining files
 for(i in 2:length(files)) {
-  countData = cbind(countData, data.frame(fread(files[i]))[2])
+  countData = cbind(countData, data.frame(fread(files[i]))[3])
 }
 
 # skipping the first 4 lines, since count data starts on the 5th line
@@ -59,9 +60,10 @@ names <- colnames(countData)
 
 # writing count matrix to a file
 write.csv(countData, file="CountMatrix.csv")  
-
+write.csv(countData, file="CountMatrix.old.csv")  
 # reading count matrix from a file
 countData  <- read.csv2('CountMatrix.csv', header=TRUE, row.names=1, sep=',', check.names = F)
+countData  <- read.csv2('CountMatrix.old.csv', header=TRUE, row.names=1, sep=',', check.names = F)
 # reading metadata file
 MetaData <- read.csv2('Metadata', header=TRUE, sep="\t")
 
@@ -76,16 +78,16 @@ MetaData <- MetaData[match(colnames(countData), MetaData$id), ]
 
 # Convert counts to DGEList
 dge <- DGEList(counts = countData)
-
-# > dim(dge)
+dim(dge)
 # [1] 27083    10
 # remove low counts
 smallestGroupSize <- 3
 keep <- rowSums(dge$counts >= 5) >= smallestGroupSize
 dge <- dge[keep,]
-# > dim(dge)
+dim(dge)
 # [1] 7143   10
 # 10286 with 5 threshold
+# 9896 with stranded data
 # Calculate FPM (Fragments Per Million)
 fpm_values <- cpm(dge, normalized.lib.sizes = TRUE)  # edgeR's CPM is equivalent to FPM
 
@@ -202,16 +204,7 @@ print(sizeFactors(SF))
 
 # the same using rlog transformation
 rlog <- rlog(dds)
-#saveRDS(rlog, file = "rlog_site_rrna_rin_condition.rds")
-#rlog <- readRDS(file = "rlog_site_rrna_rin_condition.rds")
-# since vst does not remove variation that can be associated with covariates, 
-# we manually remove the effect of covariates to be able to visualize it on PCA
 mat <- assay(rlog)
-mm <- model.matrix(~condition, colData(rlog))
-treatment.design <- mm[,1:16]
-batch.design <- mm[,-(1:17)]
-mat <- limma::removeBatchEffect(mat, covariates=batch.design, design=treatment.design)
-assay(rlog) <- mat
 # PCA plot
 pcaData <- plotPCA(rlog, intgroup=c("condition"), ntop = 500, returnData=TRUE)
 percentVar <- round(100 * attr(pcaData, "percentVar"))
@@ -247,7 +240,6 @@ ggsave("dist.jpg", dist, width = 6, height = 6)
 
 res <- results(dds, contrast=c("condition","High_fluo","Non_fluo"))
 summary(res)
-View(res.ordered)
 
 res.ordered <- data.frame(res) %>%
   filter(padj<.05 & abs(log2FoldChange)>1)  %>%
@@ -255,7 +247,7 @@ res.ordered <- data.frame(res) %>%
   mutate(Expression = case_when(log2FoldChange > log(1) ~ "Fluorescent",
                                 log2FoldChange < -log(1) ~ "Non-fluorescent"))
 
-
+View(res.ordered)
 
 
 head(res.ordered)
@@ -267,7 +259,6 @@ anno$NCBI.GeneID <- as.character(anno$NCBI.GeneID)
 geneid <- sub("LOC", "", rownames(res.ordered))
 res.ordered$NCBI.GeneID <- geneid
 
-
 res_annot <- res.ordered %>%
   left_join(anno, by = "NCBI.GeneID")
 
@@ -275,6 +266,22 @@ res_annot <- res.ordered %>%
 
 write.csv(res_annot, "res_annot.csv")
 
+
+
+#### Spis ####
+
+head(res.ordered)
+
+
+anno<- read.csv2("spis_tabulated_annots.csv", sep=",", header = T)
+res.ordered$geneid <- rownames(res.ordered)
+
+res_annot <- res.ordered %>%
+  left_join(anno, by = "geneid")
+
+#mutate(gene_id = sub("prefix_", "", gene_id))
+
+write.csv(res_annot, "res_annot.old.csv")
 
 
 
@@ -296,12 +303,13 @@ View(res_full_annot)
 
 
 
+## plotting
+
+
 gfp_res <- res_annot %>%
   filter(grepl("GFP|fluorescent|chromoprotein",
                Description,
                ignore.case = TRUE))
-
-## plotting
 
 bio_genes <- c(gfp_res$Symbol) 
 bio_genes <- bio_genes[bio_genes %in% rownames(rlog)]
@@ -314,18 +322,17 @@ rownames(anno_col) <- colnames(rlog)
 write.csv(mat_z, "z-normalized_expression_gfp.csv")
 
 # heatmap of selected genes from rlog
-pheatmap(mat_z,
+hitmap <- pheatmap(mat_z,
          annotation_col = anno_col,
          cluster_rows = TRUE,
          cluster_cols = TRUE,
          show_rownames = TRUE)  # optional for clean plots
 
-
+ggsave("heatmap.jpg", hitmap, width = 6, height = 6)
 # are these genes significantly participate in depth change?
 
 lrt.biomin <- res.ordered[bio_genes, ]
 lrt.biomin <- na.omit(lrt.biomin)
-write.csv(lrt.biomin, file="./GO/lrt.biomin.genes.csv")
 
 # visualizing the boxplots for these genes
 sig_bio_genes <- rownames(lrt.biomin) 
@@ -349,7 +356,7 @@ df_long <- df %>%
 write.csv(df_long, "expression_boxplots.csv")
 
 # Plot
-ggplot(df_long, aes(x = condition, y = expression, fill = condition)) +
+boxplot <- ggplot(df_long, aes(x = condition, y = expression, fill = condition)) +
   geom_boxplot(outlier.shape = NA) +
   geom_jitter(width = 0.2, alpha = 0.5, size = 1) +
   facet_wrap(~ gene, scales = "free_y") +
@@ -360,6 +367,6 @@ ggplot(df_long, aes(x = condition, y = expression, fill = condition)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1),
         legend.position = "none")
 
-
+ggsave("boxplot.jpg", boxplot, width = 6, height = 6)
 
   
