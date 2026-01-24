@@ -136,7 +136,7 @@ for morph in morph_order:
 # ==========================================
 ax.set_ylabel("Respiration rate (nmol/mm$^2$/min)", fontsize=13)
 ax.set_xlabel("Temperature (°C)", fontsize=13)
-ax.set_title("Respiration Rate of seettled spats by Temperature and morph", fontsize=14, pad=15)
+ax.set_title("Respiration Rate of settled spats by Temperature and morph", fontsize=14, pad=15)
 
 # Fix X-axis
 ax.set_xticks(np.arange(len(temp_order)))
@@ -147,7 +147,7 @@ legend_handles = []
 for morph in morph_order:
     patch = mpatches.Patch(color=variant_colors[morph], label=morph, edgecolor='black', linewidth=1, alpha=0.6)
     legend_handles.append(patch)
-ax.legend(handles=legend_handles, labels=morph_order, title=None, frameon=False, loc="right")
+ax.legend(handles=legend_handles, labels=morph_order, title=None, frameon=False, loc="upper right")
 
 # Y-axis scaling
 ax.set_ylim(0, df["OxyRate"].max() * 1.2)

@@ -138,7 +138,7 @@ for morph in morph_order:
 # ==========================================
 ax.set_ylabel("Respiration rate (nmol/mm$^2$/min)", fontsize=13)
 ax.set_xlabel("pH Level", fontsize=13)
-ax.set_title("Respiration Rate of seettled spats by pH and morph", fontsize=14, pad=15)
+ax.set_title("Respiration Rate of settled spats by pH and morph", fontsize=14, pad=15)
 
 # Custom Legend (Top Right) for box plots
 legend_handles = []
