@@ -29,12 +29,12 @@ print(f"ANOVA P-value: {p_val_resp:.4f}")
 # Letter assignment logic
 # If p > 0.05, no difference (all 'a'). If p < 0.05, we would need post-hoc tests.
 # For now, if non-significant, all get 'a'.
-if p_val_resp < 0.05:
-    # Placeholder: If significant, you might want to manually set these based on a Tukey test
-    # For now, let's assume they are different for visual distinctness if p < 0.05
-    letters_map = {'HF': 'a', 'PF': 'b', 'NF': 'c'}
-else:
-    letters_map = {'HF': 'a', 'PF': 'a', 'NF': 'a'}
+# if p_val_resp < 0.05:
+#     # Placeholder: If significant, you might want to manually set these based on a Tukey test
+#     # For now, let's assume they are different for visual distinctness if p < 0.05
+#     letters_map = {'HF': 'a', 'PF': 'b', 'NF': 'c'}
+# else:
+#     letters_map = {'HF': 'a', 'PF': 'a', 'NF': 'a'}
 
 # ==========================================
 # 3. STYLING SETUP
@@ -82,23 +82,23 @@ plt.scatter(range(len(morph_order)), means_resp, c=mean_colors_resp, marker='D',
 # ==========================================
 # 5. ANNOTATIONS
 # ==========================================
-y_offset_percent = 0.08
-max_val_global_resp = df_resp['OxyRate nmol/mm2/min'].max()
+# y_offset_percent = 0.08
+# max_val_global_resp = df_resp['OxyRate nmol/mm2/min'].max()
 
-for i, m in enumerate(morph_order):
-    subset_resp = df_resp[df_resp['Morph'] == m]['OxyRate nmol/mm2/min']
-    highest_point_resp = subset_resp.max()
+# for i, m in enumerate(morph_order):
+#     subset_resp = df_resp[df_resp['Morph'] == m]['OxyRate nmol/mm2/min']
+#     highest_point_resp = subset_resp.max()
 
-    # Add offset
-    pos_y_resp = highest_point_resp + (max_val_global_resp * y_offset_percent)
+#     # Add offset
+#     pos_y_resp = highest_point_resp + (max_val_global_resp * y_offset_percent)
 
-    letter = letters_map[m]
-    plt.text(x=i, y=pos_y_resp, s=letter, ha='center', va='bottom', size=14, weight='bold')
+#     letter = letters_map[m]
+#     plt.text(x=i, y=pos_y_resp, s=letter, ha='center', va='bottom', size=14, weight='bold')
 
 # P-value (Bottom Right)
-p_text_resp = f"p = {p_val_resp:.3f}" if p_val_resp >= 0.0001 else "p < 0.0001"
-plt.text(0.95, -0.1, s=p_text_resp, transform=ax.transAxes,
-         ha='right', va='bottom', size=11, style='italic', color='black')
+# p_text_resp = f"p = {p_val_resp:.3f}" if p_val_resp >= 0.0001 else "p < 0.0001"
+# plt.text(0.95, -0.1, s=p_text_resp, transform=ax.transAxes,
+#          ha='right', va='bottom', size=11, style='italic', color='black')
 
 # ==========================================
 # 6. LABELS & TITLE
@@ -106,10 +106,10 @@ plt.text(0.95, -0.1, s=p_text_resp, transform=ax.transAxes,
 # Updated Y-label to match your CSV unit (nmol/mm2/min)
 plt.ylabel("Respiration rate (nmol/mm$^2$/min)", size=13)
 plt.xlabel("")
-plt.title("Respiration Rate of settled spats by Morph \nin ambient conditions", size=14, pad=15)
+plt.title("Respiration rate of settled spats by morph \nunder ambient conditions", size=14, pad=15)
 
 # Adjust Y limit and set ticks
-plt.ylim(0, max_val_global_resp * 1.25)
+plt.ylim(0, df_resp['OxyRate nmol/mm2/min'].max() * 1.25)
 ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
 
 sns.despine()
