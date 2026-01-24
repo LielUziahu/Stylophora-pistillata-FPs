@@ -128,15 +128,15 @@ for morph in morph_order:
                 alpha=0.7, zorder=3
             )
 
-    # C. Median diamonds
-    medians = sub.groupby(x_col)["Size"].median().reindex(x_order)
+    # C. Mean Diamonds
+    means = sub.groupby(x_col)["Size"].mean().reindex(x_order)
 
     # Handle potential missing data for lines
-    valid_indices = ~medians.isna()
+    valid_indices = ~means.isna()
     if valid_indices.any():
         ax.plot(
             np.arange(len(x_order))[valid_indices] + x_positions[morph],
-            medians[valid_indices],
+            means[valid_indices],
             marker="D", linestyle="--",
             markersize=8,
             markerfacecolor=variant_colors[morph],
@@ -152,7 +152,7 @@ for morph in morph_order:
 # ==========================================
 ax.set_ylabel("Spat Area ($mm^2$)", fontsize=13)
 ax.set_xlabel("Light/Depth Conditions", fontsize=13)
-ax.set_title("Size distribution of settled spats by Light and morph", fontsize=14, pad=15)
+ax.set_title("Size distribution of settled spats by light and morph", fontsize=14, pad=15)
 
 # Custom Legend
 legend_handles = []

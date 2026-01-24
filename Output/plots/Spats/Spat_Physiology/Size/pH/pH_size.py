@@ -120,13 +120,13 @@ for morph in morph_order:
                 alpha=0.7, zorder=3
             )
 
-    # C. Median Diamonds
-    medians = sub.groupby("pH")["Size"].median().reindex(ph_order)
-    valid = ~medians.isna()
+    # C. Mean Diamonds (Changed from Median Diamonds)
+    means = sub.groupby("pH")["Size"].mean().reindex(ph_order) # Changed to mean()
+    valid = ~means.isna()
     if valid.any():
         ax.plot(
             np.arange(len(ph_order))[valid] + x_positions[morph],
-            medians[valid],
+            means[valid], # Changed to means
             marker="D", linestyle="--",
             markersize=8,
             markerfacecolor=variant_colors[morph],

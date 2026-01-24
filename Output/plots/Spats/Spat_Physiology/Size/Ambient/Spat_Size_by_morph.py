@@ -151,7 +151,7 @@ plt.title("Size distribution of settled spats from difrrent morphs", size=14, pa
 # Adjust Y limit to fit annotations
 plt.ylim(0, max_val_global * 1.15)
 # Optional: Set specific ticks if needed
-# plt.yticks(np.arange(0, max_val_global, 0.5))
+plt.yticks(np.arange(0, max_val_global, 2))
 
 sns.despine()
 plt.tight_layout()

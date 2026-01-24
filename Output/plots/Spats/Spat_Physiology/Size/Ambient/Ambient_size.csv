@@ -104,7 +104,6 @@ date,SampleCode,plate,area mm^2,morph,temp,pH,LightDepth,OxyRate nmol/mm2/min
 14/05/2025,plateC_HF_8.2_1,plateC,4.169,HF,23,8.2,10m,0.548897252
 08/04/2024,plateA_HF_27C_8,plateA,1.325,HF,23,8.2,10m,0.5459
 08/04/2025,plateE_HF_control_1,plateE,2.118,HF,23,8.2,10m,0.5459
-07/04/2024,plate2_4b,plate 2,10.467,HF,23,8.2,10m,0.53615193
 07/04/2024,plate4_41b,plate 4,4.18,PF,23,8.2,10m,0.532562667
 14/05/2025,plateD_NF_8.2_9,plateD,3.367,NF,23,8.2,10m,0.503173862
 14/05/2025,plateC_HF_8.2_5,plateC,4.105,HF,23,8.2,10m,0.496759994
@@ -149,7 +148,6 @@ date,SampleCode,plate,area mm^2,morph,temp,pH,LightDepth,OxyRate nmol/mm2/min
 08/04/2025,plateE_HF_control_2,plateE,1.18,HF,23,8.2,10m,0.1252
 27/05/2023,high_Flu_polyp,plate 1,0.958,HF,23,8.2,10m,0.122043797
 11/06/2024,plate1_36a,plate 1,4.611,NF,23,8.2,10m,0.113460242
-07/04/2024,plate5_41e,plate 5,8.723,PF,23,8.2,10m,0.111566957
 11/06/2024,plate1_38a,plate 1,2.885,PF,23,8.2,10m,0.109608566
 11/06/2024,plate1_38f,plate 1,2.925,PF,23,8.2,10m,0.102183258
 08/04/2025,plateE_HF_control_2,plateE,1.18,HF,23,8.2,10m,0.1002
