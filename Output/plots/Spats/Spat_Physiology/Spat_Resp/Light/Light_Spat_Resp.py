@@ -6,8 +6,8 @@ from scipy import stats
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 import matplotlib.ticker as ticker
-import matplotlib.patches as mpatches 
-from statsmodels.stats.multicomp import pairwise_tukeyhsd 
+import matplotlib.patches as mpatches
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 # ==========================================
 # 1. SETUP & DATA LOADING
@@ -37,7 +37,7 @@ df = df.rename(columns={
 # Clean and Order the LightDepth column
 # Logic: High Light (10m) -> Low Light (50m) -> No Light (Dark)
 df["LightDepth"] = df["LightDepth"].astype(str).str.strip()
-light_order = ["10m", "50m", "Dark"] 
+light_order = ["10m", "50m", "Dark"]
 df["LightDepth"] = pd.Categorical(df["LightDepth"], categories=light_order, ordered=True)
 
 # Drop rows with unexpected LightDepth values
@@ -83,7 +83,7 @@ fig, ax = plt.subplots(figsize=(7, 6))
 # 4. PLOT CONSTRUCTION
 # ==========================================
 box_width = 0.6
-offset = box_width / 4 
+offset = box_width / 4
 
 x_positions = {
     "HF": -offset,
@@ -117,7 +117,7 @@ for morph in morph_order:
         y = sub[sub[x_col] == level]["OxyRate"]
         # Add random jitter to x
         x = np.random.normal(i + x_positions[morph], 0.04, size=len(y))
-        
+
         ax.scatter(
             x, y,
             s=40, c=variant_colors[morph],
@@ -125,12 +125,12 @@ for morph in morph_order:
             alpha=0.7, zorder=3
         )
 
-    # C. Median diamonds
-    medians = sub.groupby(x_col)["OxyRate"].median().reindex(x_order)
+    # C. Mean diamonds (changed from median)
+    means = sub.groupby(x_col)["OxyRate"].mean().reindex(x_order)
 
     ax.plot(
         np.arange(len(x_order)) + x_positions[morph],
-        medians,
+        means,
         marker="D", linestyle="--",
         markersize=8,
         markerfacecolor=variant_colors[morph],

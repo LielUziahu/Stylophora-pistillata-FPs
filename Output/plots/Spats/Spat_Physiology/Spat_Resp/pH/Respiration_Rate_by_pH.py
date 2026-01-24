@@ -117,13 +117,13 @@ for morph in morph_order:
             alpha=0.7, zorder=3
         )
 
-    # C. Median diamonds (PERFECTLY centered)
-    medians = sub.groupby("pH")["OxyRate"].median().reindex(ph_order)
+    # C. Mean diamonds (changed from median)
+    means = sub.groupby("pH")["OxyRate"].mean().reindex(ph_order)
 
     ax.plot(
         np.arange(len(ph_order)) + x_positions[morph],
-        medians,
-        marker="D", linestyle="--", 
+        means,
+        marker="D", linestyle="--",
         markersize=8,
         markerfacecolor=variant_colors[morph],
         markeredgecolor="black",   # ✅ black outline
