@@ -29,6 +29,20 @@ df_resp = df_resp[df_resp['OxyRate nmol/mm2/min'] <= 2.09]
 # ==========================================
 # 2. STATISTICS (One-Way ANOVA)
 # ==========================================
+
+# 2.1 Calculate descriptive statistics
+descriptive_stats = df_resp.groupby('morph')['OxyRate nmol/mm2/min'].agg(
+    N='count',
+    Mean='mean',
+    Std_Dev_Col='std' # Use a valid Python identifier for the keyword argument
+).reset_index()
+descriptive_stats = descriptive_stats.rename(columns={'Std_Dev_Col': 'Std Dev'}) # Rename the column back to 'Std Dev'
+
+# 2.2 Format the descriptive statistics table to 3 decimal places and print it
+descriptive_stats_formatted = descriptive_stats.round(3)
+print("\n=== Descriptive Statistics (Ambient Assay) ===")
+print(descriptive_stats_formatted.to_string(index=False))
+
 # We use ANOVA because we now have 3 groups (HF, PF, NF)
 hf_vals = df_resp[df_resp['morph'] == 'HF']['OxyRate nmol/mm2/min']
 pf_vals = df_resp[df_resp['morph'] == 'PF']['OxyRate nmol/mm2/min']
@@ -36,9 +50,9 @@ nf_vals = df_resp[df_resp['morph'] == 'NF']['OxyRate nmol/mm2/min']
 
 f_stat, p_val_resp = stats.f_oneway(hf_vals, pf_vals, nf_vals)
 
-# Present ANOVA results in a table
+# Present ANOVA results in a table, rounded to 3 decimal places
 anova_table_data = {'Statistic': ['F-statistic', 'P-value'],
-                    'Value': [f_stat, p_val_resp]}
+                    'Value': [round(f_stat, 3), round(p_val_resp, 3)]}
 anova_df = pd.DataFrame(anova_table_data)
 print("\n=== One-Way ANOVA Results ===")
 display(anova_df)
@@ -141,7 +155,7 @@ ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
 sns.despine()
 plt.tight_layout()
 
-# Save        ---> remove # to get a downloadedble plod
+# Save        ---> remove # to get a downloadedble plot
 plt.savefig("Respiration_Rate_Spats_Ambient.png", dpi=600)
 #plt.savefig("Respiration_Rate_Spats_Ambient.tiff", dpi=600)
 #plt.savefig("Respiration_Rate_Spats_Ambient_white.svg", dpi=600, facecolor='white')

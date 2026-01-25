@@ -39,7 +39,7 @@ removed_light_samples = df[df['OxyRate'] > 2.09]
 if not removed_light_samples.empty:
     print("--- Light Samples Removed (OxyRate > 2.09) ---")
     for index, row in removed_light_samples.iterrows():
-        print(f"Morph: {row['morph']}, OxyRate: {row['OxyRate']:.2f}")
+        print(f"Morph: {row['morph']}, SampleCode: {row['SampleCode']}, OxyRate: {row['OxyRate']:.2f}")
     print("--------------------------------------------------")
 df = df[df['OxyRate'] <= 2.09]
 # ----------------------------------------------------------------
@@ -57,14 +57,45 @@ df = df.reset_index(drop=True) # Ensure unique index after filtering
 # ==========================================
 # 2. STATISTICS (Two-Way ANOVA & Tukey's HSD)
 # ==========================================
+
+# 2.1 Calculate descriptive statistics (N, Mean, Std Dev) grouped by 'morph' and 'LightDepth'
+descriptive_stats_light = df.groupby(['morph', 'LightDepth'], observed=False)['OxyRate'].agg(
+    N='count',
+    Mean='mean',
+    Std_Dev_Col='std'
+).reset_index()
+descriptive_stats_light = descriptive_stats_light.rename(columns={'Std_Dev_Col': 'Std Dev'})
+
+# 2.2 Format the descriptive statistics table to 3 decimal places and print it
+descriptive_stats_light_formatted = descriptive_stats_light.round(3)
+print("\n=== Descriptive Statistics (Light Assay) ===")
+print(descriptive_stats_light_formatted.to_string(index=False))
+
 # Model: OxyRate depends on morph and LightDepth
 model = ols("OxyRate ~ C(morph) + C(LightDepth) + C(morph):C(LightDepth)", data=df).fit()
 anova_table = sm.stats.anova_lm(model, typ=2)
 
-print("=== Two-Way ANOVA Results ===")
-print(anova_table)
+# 2.3 Extract F-value, df, and P-value for main effects and interaction
+anova_results_data = {
+    'Source': ['C(morph)', 'C(LightDepth)', 'C(morph):C(LightDepth)']
+}
 
-# 2.1 Tukey's HSD Post-hoc Test
+for stat_name in ['df', 'F', 'PR(>F)']:
+    col_name = 'F-value' if stat_name == 'F' else ('P-value' if stat_name == 'PR(>F)' else stat_name)
+    anova_results_data[col_name] = [
+        anova_table.loc['C(morph)', stat_name] if 'C(morph)' in anova_table.index else np.nan,
+        anova_table.loc['C(LightDepth)', stat_name] if 'C(LightDepth)' in anova_table.index else np.nan,
+        anova_table.loc['C(morph):C(LightDepth)', stat_name] if 'C(morph):C(LightDepth)' in anova_table.index else np.nan
+    ]
+
+anova_results_df_light = pd.DataFrame(anova_results_data)
+
+# 2.4 Format the ANOVA results table to 3 decimal places and print it
+anova_results_df_light_formatted = anova_results_df_light.round(3)
+print("\n=== Two-Way ANOVA Results (Light Assay) ===")
+print(anova_results_df_light_formatted.to_string(index=False))
+
+# 2.5 Tukey's HSD Post-hoc Test
 df['group'] = df['morph'].astype(str) + "_" + df['LightDepth'].astype(str)
 tukey_result = pairwise_tukeyhsd(endog=df['OxyRate'], groups=df['group'], alpha=0.05)
 
@@ -177,7 +208,7 @@ ax.yaxis.set_major_locator(ticker.MultipleLocator(1)) # Adjusted tick frequency 
 sns.despine(ax=ax)
 fig.tight_layout()
 
-# Save options   ---> remove # to get a downloadedble plod
+# Save options   ---> remove # to get a downloadedble plot
 plt.savefig("Respiration_Rate_by_Light.png", dpi=600)
 #plt.savefig("Respiration_Rate_by_Light.pdf", dpi=600)
 #plt.savefig("Respiration_Rate_by_Light.tiff", dpi=600)
