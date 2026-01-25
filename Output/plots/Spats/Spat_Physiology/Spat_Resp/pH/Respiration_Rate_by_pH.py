@@ -6,28 +6,38 @@ from scipy import stats
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 import matplotlib.ticker as ticker
-import matplotlib.patches as mpatches # Import for creating legend patches
-from statsmodels.stats.multicomp import pairwise_tukeyhsd # Import for Tukey's HSD
+import matplotlib.patches as mpatches 
+from statsmodels.stats.multicomp import pairwise_tukeyhsd 
 
 # ==========================================
 # 1. SETUP & DATA LOADING
 # ==========================================
-filename = "pH_Spat_Resp.csv"
+filename = "pH_Assay.csv"
 df = pd.read_csv(filename)
 
-# Normalize / rename the response column once (safer than repeating the long name everywhere)
+# Normalize / rename the response column
 df = df.rename(columns={"OxyRate nmol/mm2/min": "OxyRate"})
 
 # Keep only HF / NF
 target_morphs = ["HF", "NF"]
 df = df[df["morph"].isin(target_morphs)].copy()
 
-# Ensure pH is clean and ordered (robust to 7.60 vs 7.6)
+# --- MODIFIED: Specific Outlier Removal ---
+# 1. Remove pH 8.2 NF Technical Errors (Plate D failures > 2.0)
+# (Note: pH is likely float 8.2 here)
+df = df[~((df['pH'] == 8.2) & (df['morph'] == 'NF') & (df['OxyRate'] > 2.0))]
+
+# 2. Remove pH 7.8 HF Statistical Outliers (> 1.5)
+# This removes both 2.36 AND 1.89 (which the previous >2.09 filter missed)
+df = df[~((df['pH'] == 7.8) & (df['morph'] == 'HF') & (df['OxyRate'] > 1.5))]
+# ------------------------------------------
+
+# Ensure pH is clean and ordered
 df["pH"] = df["pH"].astype(str).str.strip()
-ph_order = ["8.2", "7.8", "7.6"] # Reversed order
+ph_order = ["8.2", "7.8", "7.6"] 
 df["pH"] = pd.Categorical(df["pH"], categories=ph_order, ordered=True)
 
-# Optional: drop rows with unexpected pH values (prevents empty categories / odd plotting)
+# Optional: drop rows with unexpected pH values
 df = df[df["pH"].isin(ph_order)].copy()
 
 # ==========================================
@@ -39,18 +49,8 @@ anova_table = sm.stats.anova_lm(model, typ=2)
 print("=== Two-Way ANOVA Results ===")
 print(anova_table)
 
-p_morph = anova_table.loc["C(morph)", "PR(>F)"]
-p_ph = anova_table.loc["C(pH)", "PR(>F)"]
-p_inter = anova_table.loc["C(morph):C(pH)", "PR(>F)"]
-
-def format_pvalue(p):
-    return "< 0.0001" if p < 0.0001 else f"= {p:.3f}"
-
 # 2.1 Tukey's HSD Post-hoc Test
-# Create a "group" column for interaction comparisons
 df['group'] = df['morph'].astype(str) + "_" + df['pH'].astype(str)
-
-# Run Tukey's HSD
 tukey_result = pairwise_tukeyhsd(endog=df['OxyRate'], groups=df['group'], alpha=0.05)
 
 print("\n=== Tukey's HSD Post-hoc Test Results ===")
@@ -72,16 +72,13 @@ plt.rcParams.update({
 variant_colors = {"HF": "#2ca02c", "NF": "#d62728"}
 morph_order = ["HF", "NF"]
 
-# Consistent dodge so layers align
-dodge_width = 0.35
-
 fig, ax = plt.subplots(figsize=(7, 6))
 
 # ==========================================
 # 4. PLOT CONSTRUCTION (MANUAL ALIGNMENT)
 # ==========================================
 box_width = 0.6
-offset = box_width / 4   # half of half-width → perfect centering
+offset = box_width / 4
 
 x_positions = {
     "HF": -offset,
@@ -91,7 +88,7 @@ x_positions = {
 for morph in morph_order:
     sub = df[df["morph"] == morph]
 
-    # A. Boxplots (no hue)
+    # A. Boxplots
     sns.boxplot(
         data=sub, x="pH", y="OxyRate",
         order=ph_order,
@@ -106,10 +103,12 @@ for morph in morph_order:
         positions=np.arange(len(ph_order)) + x_positions[morph]
     )
 
-    # B. Jittered points (exact same positions)
+    # B. Jittered points
     for i, ph in enumerate(ph_order):
         y = sub[sub["pH"] == ph]["OxyRate"]
-        x = np.random.normal(i + x_positions[morph], 0.04, size=len(y))
+        positions_for_jitter = np.arange(len(ph_order)) + x_positions[morph]
+        x = np.random.normal(positions_for_jitter[i], 0.04, size=len(y))
+
         ax.scatter(
             x, y,
             s=40, c=variant_colors[morph],
@@ -117,7 +116,7 @@ for morph in morph_order:
             alpha=0.7, zorder=3
         )
 
-    # C. Mean diamonds (changed from median)
+    # C. Mean diamonds
     means = sub.groupby("pH")["OxyRate"].mean().reindex(ph_order)
 
     ax.plot(
@@ -126,7 +125,7 @@ for morph in morph_order:
         marker="D", linestyle="--",
         markersize=8,
         markerfacecolor=variant_colors[morph],
-        markeredgecolor="black",   # ✅ black outline
+        markeredgecolor="black",
         markeredgewidth=1.5,
         linewidth=2,
         color=variant_colors[morph],
@@ -134,21 +133,18 @@ for morph in morph_order:
     )
 
 # ==========================================
-# 5. LABELS, LEGEND & ANNOTATION
+# 6. LABELS & TITLE
 # ==========================================
 ax.set_ylabel("Respiration rate (nmol/mm$^2$/min)", fontsize=13)
 ax.set_xlabel("pH Level", fontsize=13)
 ax.set_title("Respiration Rate of settled spats by pH and morph", fontsize=14, pad=15)
 
-# Custom Legend (Top Right) for box plots
+# Custom Legend
 legend_handles = []
 for morph in morph_order:
-    # Create a colored patch resembling a box, with matching alpha
     patch = mpatches.Patch(color=variant_colors[morph], label=morph, edgecolor='black', linewidth=1, alpha=0.6)
     legend_handles.append(patch)
 ax.legend(handles=legend_handles, labels=morph_order, title=None, frameon=False, loc="upper right")
-
-# Removed the ANOVA text box as requested.
 
 # Y-axis formatting
 max_val = df["OxyRate"].max()
@@ -158,11 +154,5 @@ ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
 sns.despine(ax=ax)
 fig.tight_layout()
 
-# Save options
 plt.savefig("Respiration_Rate_by_pH.png", dpi=600)
-plt.savefig("Respiration_Rate_by_pH.tiff", dpi=600)
-plt.savefig("Respiration_Rate_by_pH_white.svg", dpi=600, facecolor='white')
-plt.savefig("Respiration_Rate_by_pH_transparent.svg", dpi=600, transparent=True)
-plt.savefig("Respiration_Rate_by_pH.pdf", dpi=600)
-
 plt.show()

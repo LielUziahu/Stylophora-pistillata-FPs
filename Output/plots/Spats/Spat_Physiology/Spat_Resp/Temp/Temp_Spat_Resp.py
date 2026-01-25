@@ -11,7 +11,7 @@ from statsmodels.stats.multicomp import pairwise_tukeyhsd
 # ==========================================
 # 1. SETUP & DATA LOADING
 # ==========================================
-filename = "Temp_Spat_Resp.csv"
+filename = "Temp_Assay.csv"
 df = pd.read_csv(filename)
 
 # Clean column names
@@ -20,9 +20,14 @@ if 'color' in df.columns:
     df = df.rename(columns={"color": "morph"})
 
 # --- DATA CLEANING ---
-# 1. Filter Outliers (0.1 - 2.07)
-# (Your file is already clean, but this is a safety line)
-df = df[(df['OxyRate'] >= 0.1) & (df['OxyRate'] <= 2.07)]
+# 1. Filter Outliers (only > 2.09, as requested by the user)
+removed_temp_samples = df[df['OxyRate'] > 2.09]
+if not removed_temp_samples.empty:
+    print("--- Temperature Samples Removed (OxyRate > 2.09) ---") # Updated message
+    for index, row in removed_temp_samples.iterrows():
+        print(f"Morph: {row['morph']}, SampleCode: {row['SampleCode']}, OxyRate: {row['OxyRate']:.2f}")
+    print("-----------------------------------------------------------")
+df = df[df['OxyRate'] <= 2.09] # Filter only > 2.09
 
 # 2. Reset Index
 df = df.reset_index(drop=True)
@@ -150,17 +155,18 @@ for morph in morph_order:
 ax.legend(handles=legend_handles, labels=morph_order, title=None, frameon=False, loc="upper right")
 
 # Y-axis scaling
-ax.set_ylim(0, df["OxyRate"].max() * 1.2)
+max_val = df["OxyRate"].max()
+ax.set_ylim(0, max_val * 1.2)
 ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
 
 sns.despine(ax=ax)
 fig.tight_layout()
 
-# Save
+# Save   ---> remove # to get a downloadedble plot
 plt.savefig("Respiration_Rate_by_Temp.png", dpi=600)
-plt.savefig("Respiration_Rate_by_Temp.pdf", dpi=600)
-plt.savefig("Respiration_Rate_by_Temp.tiff", dpi=600)
-plt.savefig("Respiration_Rate_by_Temp_transparent.svg", dpi=600, transparent=True)
-plt.savefig("Respiration_Rate_by_Temp_white.svg", dpi=600, facecolor='white')
+#plt.savefig("Respiration_Rate_by_Temp.pdf", dpi=600)
+#plt.savefig("Respiration_Rate_by_Temp.tiff", dpi=600)
+#plt.savefig("Respiration_Rate_by_Temp_transparent.svg", dpi=600, transparent=True)
+#plt.savefig("Respiration_Rate_by_Temp_white.svg", dpi=600, facecolor='white')
 
 plt.show()
