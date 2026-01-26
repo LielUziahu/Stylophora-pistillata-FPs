@@ -1,62 +1,50 @@
 /*
- * SOP SCRIPT: UNIVERSAL ALGAE COUNTER (ND2 + TIFF)
- * - Automatically detects .nd2 or .tif files
- * - Uses Bio-Formats for ND2, Standard Open for TIFF
+ * SOP SCRIPT: UNIVERSAL ALGAE COUNTER (Scale Bar Eraser + .nd2 Support)
+ * Lab Protocol: 2026 Update
  * - Crops to 1360x1360 (Middle Big Square)
  *change boxSize acording to the image pixel size:
  *if image is 1608x1680 set box to 1360
  *if image is 536x536 set box to 512
  */
 
-macro "SOP Algae Universal [F4]" {
+macro "SOP Universal Eraser [F2]" {
     // --- CONFIGURATION ---
-    minSize = 50;           
-    boxSize = 1360;  // Calculated size for Middle Big Square 
+    minSize = 50;          
+    boxSize = 512; 
     threshMethod = "Triangle"; 
-     
+    
     // --- SETUP ---
     run("Close All");
     if (isOpen("ROI Manager")) { selectWindow("ROI Manager"); run("Close"); }
     print("\\Clear");
-     
+    
     inputDir = getDirectory("Select the INPUT Folder");
     outputDir = getDirectory("Select the OUTPUT Folder");
-     
+    
     list = getFileList(inputDir);
     Array.sort(list); 
 
-    // Create CSV header
-    csvPath = outputDir + "Algae_Results_Universal.csv";
+    // Create CSV and write header
+    csvPath = outputDir + "Algae_Results_Eraser.csv";
     File.saveString("Sample No,Conc (Cells/mL),Average,Counts...\n", csvPath);
 
     currentSample = "";
     counts = newArray(0); 
     imageCount = 0;
 
-    setBatchMode(true); 
-
     for (i = 0; i < list.length; i++) {
         filename = list[i];
-        nameLower = toLowerCase(filename);
+        ext = toLowerCase(filename);
         
-        // --- 1. CHECK FILE TYPE ---
-        isND2 = endsWith(nameLower, ".nd2");
-        isTIF = endsWith(nameLower, ".tif") || endsWith(nameLower, ".tiff");
-        
-        if (isND2 || isTIF) {
-            imageCount++;
-            showStatus("Processing: " + filename);
-
-            // --- 2. PARSE SAMPLE ID ---
-            // Remove extension intelligently
-            nameNoExt = filename;
-            if (isND2) { nameNoExt = replace(nameNoExt, ".nd2", ""); }
-            if (isTIF) { 
-                nameNoExt = replace(nameNoExt, ".tiff", ""); 
-                nameNoExt = replace(nameNoExt, ".tif", ""); 
-            }
+        if (endsWith(ext, ".nd2") || endsWith(ext, ".tif") || endsWith(ext, ".tiff") || 
+            endsWith(ext, ".jpg") || endsWith(ext, ".jpeg") || endsWith(ext, ".png")) {
             
-            // Standardize Sample ID (split by underscore)
+            imageCount++;
+            path = inputDir + filename;
+
+            // 1. Parsing Sample ID
+            dotIndex = lastIndexOf(filename, ".");
+            nameNoExt = substring(filename, 0, dotIndex);
             if (indexOf(nameNoExt, "_") >= 0) {
                 parts = split(nameNoExt, "_");
                 sampleID = parts[0]; 
@@ -64,31 +52,41 @@ macro "SOP Algae Universal [F4]" {
                 sampleID = nameNoExt;
             }
 
-            // --- 3. DATA GROUPING ---
+            // 2. Data Grouping
             if (sampleID != currentSample) {
                 if (currentSample != "") { saveRowToCSV(currentSample, counts, csvPath); }
                 currentSample = sampleID;
                 counts = newArray(0); 
             }
             
-            // --- 4. OPEN IMAGE (The Smart Part) ---
-            path = inputDir + filename;
-            
-            if (isND2) {
-                // Use Bio-Formats for ND2
-                run("Bio-Formats Importer", "open=[" + path + "] color_mode=Default view=Hyperstack stack_order=XYCZT");
+            // 3. Open Image (Hybrid Logic)
+            setBatchMode(false); // Must be OFF to see the image for erasing
+            if (endsWith(ext, ".nd2")) {
+                run("Bio-Formats Importer", "open=[" + path + "] color_mode=Default view=Hyperstack stack_order=XYCZT use_virtual_stack");
             } else {
-                // Use Standard Opener for TIFF
                 open(path);
             }
             
             originalTitle = getTitle();
-            
-            // --- 5. CROP LOGIC (1360x1360 Center) ---
+            if (nSlices > 1) { run("Z Project...", "projection=[Max Intensity]"); originalTitle = getTitle(); }
+
+            // 4. Auto-Crop
             makeRectangle(getWidth()/2 - boxSize/2, getHeight()/2 - boxSize/2, boxSize, boxSize);
             run("Crop");
 
-            // --- 6. ANALYSIS ---
+            // 5. MANUAL INTERACTION: Scale Bar Eraser
+            setTool("rectangle");
+            // Beep to alert the user
+            beep();
+            waitForUser("Scale Bar Eraser", "Draw a box over the SCALE BAR or text.\nThen click OK.\n(If no scale bar, just click OK)");
+            
+            if (selectionType() != -1) {
+                run("Set...", "value=0"); // Paint selection black
+                run("Select None");
+            }
+
+            // 6. Analysis (Turn BatchMode back ON for speed)
+            setBatchMode(true);
             run("Duplicate...", "title=Detection_Mask");
             run("8-bit");
             run("Subtract Background...", "rolling=50");
@@ -103,28 +101,27 @@ macro "SOP Algae Universal [F4]" {
             thisCount = roiManager("count");
             counts = Array.concat(counts, thisCount);
             
-            // --- 7. SAVE EVIDENCE ---
+            // 7. Save Evidence
             selectWindow(originalTitle);
-            run("8-bit"); 
+            run("8-bit");
             roiManager("Show All with labels");
             run("Labels...", "color=Cyan font=14 show use draw");
             run("Flatten"); 
             saveAs("Jpeg", outputDir + "Checked_" + nameNoExt + ".jpg");
             
-            // Cleanup
+            // 8. Cleanup
             run("Close All"); 
+            setBatchMode(false); // Reset for next image eraser
         }
     }
 
     // Save final sample
     if (currentSample != "") { saveRowToCSV(currentSample, counts, csvPath); }
     
-    setBatchMode(false);
-    
     if (imageCount == 0) {
-        showMessage("Error", "No .nd2 or .tif files found in the folder!");
+        showMessage("Error", "No images found.");
     } else {
-        showMessage("Success!", imageCount + " images processed.\nResults saved to: " + csvPath);
+        showMessage("Success!", "Processed " + imageCount + " images.\nResults: " + csvPath);
     }
 }
 

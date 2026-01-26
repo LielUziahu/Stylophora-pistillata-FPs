@@ -1,0 +1,29 @@
+Assay,Condition,Morph,N,Mean Size (mm^2),SD
+Ambient,Ambient (Control),HF,84,2.665,1.634
+Ambient,Ambient (Control),NF,53,2.416,1.318
+Ambient,Ambient (Control),PF,35,2.495,1.909
+Light,10m,HF,84,2.665,1.634
+Light,10m,NF,53,2.416,1.318
+Light,10m,PF,35,2.495,1.909
+Light,50m,HF,19,3.921,2.615
+Light,50m,NF,10,3.865,2.181
+Light,50m,PF,7,3.395,0.974
+Light,Dark,HF,10,3.795,2.181
+Light,Dark,NF,9,2.722,1.51
+Light,Dark,PF,5,3.321,1.87
+Temperature,23°C,HF,84,2.665,1.634
+Temperature,23°C,NF,53,2.416,1.318
+Temperature,23°C,PF,35,2.495,1.909
+Temperature,27°C,HF,25,3.163,1.911
+Temperature,27°C,NF,28,3.099,1.747
+Temperature,27°C,PF,1,1.836,
+Temperature,32°C,HF,10,2.745,1.189
+Temperature,32°C,NF,9,3.255,1.262
+Temperature,32°C,PF,6,3.162,1.517
+pH,pH 7.6,HF,28,2.447,0.511
+pH,pH 7.6,NF,14,2.86,0.86
+pH,pH 7.8,HF,28,2.095,0.984
+pH,pH 7.8,NF,18,2.374,1.014
+pH,pH 8.2,HF,84,2.665,1.634
+pH,pH 8.2,NF,53,2.416,1.318
+pH,pH 8.2,PF,35,2.495,1.909
