@@ -1,1 +1,4 @@
-
+## Description of the files
+[biomineralization_gene_presence_summary.csv](https://github.com/LielUziahu/Stylophora-pistillata-FPs/blob/main/Output/plots/Planulae/Planulae_DE/biomineralization_gene_presence_summary.csv) differentially expressed biomineralization toolkit genes 
+[enrichment_results.lfc1.FL.top.csv](https://github.com/LielUziahu/Stylophora-pistillata-FPs/blob/main/Output/plots/Planulae/Planulae_DE/enrichment_results.lfc1.FL.top.csv) gene ontology results for fluorescent phenotype - only significantly enriched (p. adj < 0.05) terms. For non-fluorescent phenotype there is no significantly enriched terms  
+[enrichment_results.lfc1.FL.top.csv](https://github.com/LielUziahu/Stylophora-pistillata-FPs/blob/main/Output/plots/Planulae/Planulae_DE/GOslim.lfc1.FL.top.csv) GO slims for significantly enriched GO terms in fluorescent phenotype
