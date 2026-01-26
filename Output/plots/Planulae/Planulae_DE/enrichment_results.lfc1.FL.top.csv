@@ -1,0 +1,215 @@
+ID,Description,p.adjust,mean_logFC,n_genes_matched,contrast,z_logFC,Description_ordered
+GO:0000323,lytic vacuole,0.03412641133615961,2.0436944184962087,18,FLvNF,-0.18720131306565696,lytic vacuole
+GO:0001501,skeletal system development,0.00160848994104379,2.440462043284268,17,FLvNF,0.6140157712247087,skeletal system development
+GO:0001502,cartilage condensation,2.3176819615041737e-4,2.628209705500763,6,FLvNF,0.9931460860627352,cartilage condensation
+GO:0001568,blood vessel development,0.00561711608507293,2.10714129460174,16,FLvNF,-0.05907916321091505,blood vessel development
+GO:0001569,branching involved in blood vessel morphogenesis,0.03666104114509631,2.03895161479829,4,FLvNF,-0.19677874608388224,branching involved in blood vessel morphogenesis
+GO:0001655,urogenital system development,0.04065945120297729,1.9962423154869946,13,FLvNF,-0.2830242412513863,urogenital system development
+GO:0001656,metanephros development,0.04112617622345678,2.11383842837694,5,FLvNF,-0.04555523217109115,metanephros development
+GO:0001775,cell activation,0.01652962380568006,2.0715699585314806,23,FLvNF,-0.13091053348904647,cell activation
+GO:0001944,vasculature development,0.01034199028538489,2.10714129460174,16,FLvNF,-0.05907916321091505,vasculature development
+GO:0002020,protease binding,0.01766109639254118,2.1063533959356144,9,FLvNF,-0.06067021508246445,protease binding
+GO:0004175,endopeptidase activity,1.884069052804027e-4,2.5315728317112445,16,FLvNF,0.7980013478953171,endopeptidase activity
+GO:0004222,metalloendopeptidase activity,9.876698820706906e-9,2.032219097055615,17,FLvNF,-0.21037413012914188,metalloendopeptidase activity
+GO:0004252,serine-type endopeptidase activity,6.663136858941529e-4,2.51818261790471,11,FLvNF,0.770961671788107,serine-type endopeptidase activity
+GO:0004553,"hydrolase activity, hydrolyzing O-glycosyl compounds",0.02134423102061641,1.75273649209095,6,FLvNF,-0.7747504145582946,"hydrolase activity, hydrolyzing O-glycosyl compounds"
+GO:0004866,endopeptidase inhibitor activity,1.6940175681021507e-4,2.696633524497329,9,FLvNF,1.1313184805007255,endopeptidase inhibitor activity
+GO:0004867,serine-type endopeptidase inhibitor activity,1.6940175681021507e-4,2.5491712484089772,7,FLvNF,0.8335389049785499,serine-type endopeptidase inhibitor activity
+GO:0004888,transmembrane signaling receptor activity,0.00177101513431138,2.128283113523591,17,FLvNF,-0.016386197719567407,transmembrane signaling receptor activity
+GO:0005001,transmembrane receptor protein tyrosine phosphatase activity,0.04248595872087747,1.6575311892558902,3,FLvNF,-0.96700429411118,transmembrane receptor protein tyrosine phosphatase activity
+GO:0005125,cytokine activity,0.03029287961713511,2.3359612579035876,4,FLvNF,0.40299095635104887,cytokine activity
+GO:0005126,cytokine receptor binding,0.04600271748140181,2.2603412461144314,7,FLvNF,0.25028685053577476,cytokine receptor binding
+GO:0005201,extracellular matrix structural constituent,1.3104182227205443e-10,2.018746567098361,14,FLvNF,-0.23758003226425656,extracellular matrix structural constituent
+GO:0005319,lipid transporter activity,0.00160848994104379,1.9954399175390924,8,FLvNF,-0.28464457240769514,lipid transporter activity
+GO:0005518,collagen binding,0.00623667414094187,2.177506910936488,6,FLvNF,0.08301442112358565,collagen binding
+GO:0005539,glycosaminoglycan binding,0.01636668113469138,2.0226514600079457,7,FLvNF,-0.22969464364880457,glycosaminoglycan binding
+GO:0005581,collagen trimer,2.7362377757183245e-7,2.0629397223798787,8,FLvNF,-0.14833809615829763,collagen trimer
+GO:0005604,basement membrane,3.414279104352541e-10,2.077298761554009,18,FLvNF,-0.11934201184710075,basement membrane
+GO:0005615,extracellular space,1.3868499302827471e-21,2.1037104256178067,54,FLvNF,-0.06600732637785053,extracellular space
+GO:0005764,lysosome,0.03666104114509631,2.0436944184962087,18,FLvNF,-0.18720131306565696,lysosome
+GO:0005775,vacuolar lumen,0.00163766413184024,2.1665983725033757,12,FLvNF,0.060986143584770704,vacuolar lumen
+GO:0005788,endoplasmic reticulum lumen,4.976703442625653e-7,2.1795427460210246,20,FLvNF,0.08712550718157641,endoplasmic reticulum lumen
+GO:0006826,iron ion transport,0.0233028357763831,2.225824944194758,5,FLvNF,0.18058597511949295,iron ion transport
+GO:0006869,lipid transport,0.00797741795085501,1.875571063018123,10,FLvNF,-0.5267030673965926,lipid transport
+GO:0006935,chemotaxis,2.213742990996895e-4,2.2788952349653835,25,FLvNF,0.28775405279819877,chemotaxis
+GO:0006959,humoral immune response,0.03780691153764724,2.22048899196588,6,FLvNF,0.1698107610656294,humoral immune response
+GO:0007155,cell adhesion,0.00166438244277994,2.2433268486785636,19,FLvNF,0.21592863919782745,cell adhesion
+GO:0007162,negative regulation of cell adhesion,0.00139840368638214,2.0709590235114392,12,FLvNF,-0.1321442318678139,negative regulation of cell adhesion
+GO:0007178,cell surface receptor protein serine/threonine kinase signaling pathway,0.04861330139558764,2.33195668927629,8,FLvNF,0.39490428647439807,cell surface receptor protein serine/threonine kinase signaling pathway
+GO:0007409,axonogenesis,0.00160848994104379,2.259899250396439,23,FLvNF,0.249394301602056,axonogenesis
+GO:0007411,axon guidance,5.317698376055187e-4,2.18793103794491,21,FLvNF,0.10406449710299977,axon guidance
+GO:0007413,axonal fasciculation,0.0233028357763831,1.8193641960429119,5,FLvNF,-0.6402050248686287,axonal fasciculation
+GO:0007414,axonal defasciculation,0.00797741795085501,2.02031074769452,4,FLvNF,-0.23442138690545858,axonal defasciculation
+GO:0007416,synapse assembly,0.03233021845955693,2.0338632092374445,7,FLvNF,-0.20705407404020254,synapse assembly
+GO:0007419,ventral cord development,0.0233028357763831,1.99770300589946,5,FLvNF,-0.28007457993778595,ventral cord development
+GO:0007424,open tracheal system development,0.04600271748140181,2.238187562359556,10,FLvNF,0.20555056462067917,open tracheal system development
+GO:0007426,"tracheal outgrowth, open tracheal system",0.03029287961713511,2.006955698587395,4,FLvNF,-0.2613900527886212,"tracheal outgrowth, open tracheal system"
+GO:0007431,salivary gland development,0.02430355042842092,2.0637902096945044,9,FLvNF,-0.14662065520828463,salivary gland development
+GO:0007498,mesoderm development,0.03291807752815196,2.2587225212123068,9,FLvNF,0.2470180605304377,mesoderm development
+GO:0007548,sex differentiation,0.00831767793240803,2.1201304146366136,18,FLvNF,-0.03284944024045279,sex differentiation
+GO:0007584,response to nutrient,0.01300203235988081,2.2162967017369657,12,FLvNF,0.16134501349989985,response to nutrient
+GO:0007596,blood coagulation,0.02851765960029031,2.2143638497446876,9,FLvNF,0.15744188748641746,blood coagulation
+GO:0007599,hemostasis,0.03291807752815196,2.2143638497446876,9,FLvNF,0.15744188748641746,hemostasis
+GO:0007601,visual perception,0.02589943759555479,2.2053071404504716,7,FLvNF,0.13915312156744078,visual perception
+GO:0008028,monocarboxylic acid transmembrane transporter activity,0.03029287961713511,2.1649841145567623,4,FLvNF,0.05772637397537018,monocarboxylic acid transmembrane transporter activity
+GO:0008037,cell recognition,0.00149629661559866,2.3549872095961577,12,FLvNF,0.44141122198918714,cell recognition
+GO:0008038,neuron recognition,2.213742990996895e-4,2.3549872095961577,12,FLvNF,0.44141122198918714,neuron recognition
+GO:0008045,motor neuron axon guidance,7.235736509537192e-5,2.273799189910675,12,FLvNF,0.27746329794558994,motor neuron axon guidance
+GO:0008083,growth factor activity,7.923043632900459e-4,1.8576228876274232,6,FLvNF,-0.5629469135585624,growth factor activity
+GO:0008202,steroid metabolic process,0.03472004835903013,1.6432510577188733,9,FLvNF,-0.9958410354140605,steroid metabolic process
+GO:0008233,peptidase activity,0.00466399796698026,2.3991880158708687,18,FLvNF,0.5306686082127343,peptidase activity
+GO:0008236,serine-type peptidase activity,8.41577681875133e-5,2.51818261790471,11,FLvNF,0.770961671788107,serine-type peptidase activity
+GO:0008237,metallopeptidase activity,7.235736509537192e-5,2.1563295573754138,13,FLvNF,0.040249698366143345,metallopeptidase activity
+GO:0008406,gonad development,0.0278811573179581,2.23790327511785,13,FLvNF,0.2049764860399925,gonad development
+GO:0008643,carbohydrate transport,0.02071329222925609,1.5489775581507725,4,FLvNF,-1.186213267750684,carbohydrate transport
+GO:0009611,response to wounding,9.6671724414308e-4,2.106474840580248,22,FLvNF,-0.06042497449831148,response to wounding
+GO:0009725,response to hormone,0.00214359050219595,2.0670463163979336,28,FLvNF,-0.14004540018223918,response to hormone
+GO:0009986,cell surface,0.02262800883847754,2.160962890056509,16,FLvNF,0.049606069877748855,cell surface
+GO:0010001,glial cell differentiation,0.02262800883847754,2.0627396629461883,10,FLvNF,-0.14874208838481012,glial cell differentiation
+GO:0010038,response to metal ion,0.0448196635976944,2.5482664848667884,14,FLvNF,0.8317118607290802,response to metal ion
+GO:0010469,regulation of signaling receptor activity,0.00974099214530295,2.194021011718768,9,FLvNF,0.11636235288975037,regulation of signaling receptor activity
+GO:0010575,positive regulation of vascular endothelial growth factor production,0.03029287961713511,2.807110115262083,3,FLvNF,1.3544106039625594,positive regulation of vascular endothelial growth factor production
+GO:0010884,positive regulation of lipid storage,0.0448196635976944,2.45047039068873,4,FLvNF,0.6342262380697584,positive regulation of lipid storage
+GO:0015026,coreceptor activity,0.0448196635976944,2.267995532398688,4,FLvNF,0.2657436180637996,coreceptor activity
+GO:0015718,monocarboxylic acid transport,0.01893595453131025,1.9298480516765586,7,FLvNF,-0.41709823101357685,monocarboxylic acid transport
+GO:0015850,organic hydroxy compound transport,0.02891178459340963,1.7740174435169782,6,FLvNF,-0.731776490308313,organic hydroxy compound transport
+GO:0016485,protein processing,0.03904255708490747,2.4787778407803134,9,FLvNF,0.6913891999878048,protein processing
+GO:0017171,serine hydrolase activity,5.9466690059932125e-5,2.51818261790471,11,FLvNF,0.770961671788107,serine hydrolase activity
+GO:0019432,triglyceride biosynthetic process,0.03312864458698161,1.79958945483651,4,FLvNF,-0.6801373668797827,triglyceride biosynthetic process
+GO:0019838,growth factor binding,1.7649249252962887e-5,2.1743422882509913,13,FLvNF,0.07662390535933353,growth factor binding
+GO:0021675,nerve development,0.02417471332456068,2.4871714181766156,7,FLvNF,0.7083388631863157,nerve development
+GO:0021782,glial cell development,0.04069010908187207,2.1516354671474143,7,FLvNF,0.030770635431301697,glial cell development
+GO:0022407,regulation of cell-cell adhesion,0.03233021845955693,1.9369917771838556,11,FLvNF,-0.40267247002820244,regulation of cell-cell adhesion
+GO:0022408,negative regulation of cell-cell adhesion,0.01073807367610462,2.1190952225660324,8,FLvNF,-0.03493986677894507,negative regulation of cell-cell adhesion
+GO:0022617,extracellular matrix disassembly,0.03054968012732391,2.7294920198310537,5,FLvNF,1.1976716458818941,extracellular matrix disassembly
+GO:0030155,regulation of cell adhesion,0.00389435273470691,1.8825480613584538,19,FLvNF,-0.5126139887568609,regulation of cell adhesion
+GO:0030195,negative regulation of blood coagulation,0.00438845423444507,1.8725473334457199,4,FLvNF,-0.5328090690971534,negative regulation of blood coagulation
+GO:0030198,extracellular matrix organization,6.178218460653462e-18,2.1332061611868367,34,FLvNF,-0.006444787059675197,extracellular matrix organization
+GO:0030199,collagen fibril organization,7.923043632900459e-4,2.39213839234835,6,FLvNF,0.5164328731094118,collagen fibril organization
+GO:0030414,peptidase inhibitor activity,0.01490563499356176,2.5865478552803465,6,FLvNF,0.9090157687830055,peptidase inhibitor activity
+GO:0030424,axon,0.04491065876549355,1.999958032453882,21,FLvNF,-0.275520867164733,axon
+GO:0030510,regulation of BMP signaling pathway,0.01766109639254118,2.2456721609430343,7,FLvNF,0.22066467141641752,regulation of BMP signaling pathway
+GO:0030517,negative regulation of axon extension,0.01440698246019615,2.0748569215871275,4,FLvNF,-0.12427296834742903,negative regulation of axon extension
+GO:0030545,signaling receptor regulator activity,0.00130127312784755,2.232634550021059,8,FLvNF,0.19433702783764198,signaling receptor regulator activity
+GO:0030574,collagen catabolic process,1.6940175681021507e-4,1.8848609624149515,7,FLvNF,-0.5079434064689812,collagen catabolic process
+GO:0031012,extracellular matrix,1.113653615983471e-19,1.894651336739397,35,FLvNF,-0.4881731059699585,extracellular matrix
+GO:0031983,vesicle lumen,3.9689383389273166e-4,2.2439688402694995,17,FLvNF,0.21722505200596265,vesicle lumen
+GO:0032101,regulation of response to external stimulus,0.01893595453131025,2.223202851453212,21,FLvNF,0.17529102318826437,regulation of response to external stimulus
+GO:0032102,negative regulation of response to external stimulus,0.00234736201771501,2.210745157001318,13,FLvNF,0.15013444033688225,negative regulation of response to external stimulus
+GO:0032368,regulation of lipid transport,0.01131419115576971,1.7425653584781071,7,FLvNF,-0.7952896055307507,regulation of lipid transport
+GO:0033197,response to vitamin E,0.04248595872087747,2.43644230782729,3,FLvNF,0.6058984740430678,response to vitamin E
+GO:0033273,response to vitamin,0.00169327316113912,2.5383154343022927,8,FLvNF,0.8116170968904979,response to vitamin
+GO:0033993,response to lipid,0.02092641016234363,2.1802144752506343,22,FLvNF,0.08848197101873542,response to lipid
+GO:0034774,secretory granule lumen,0.00169327316113912,2.2759794682600574,15,FLvNF,0.2818660671054139,secretory granule lumen
+GO:0035017,cuticle pattern formation,0.0448196635976944,2.0830205149860523,4,FLvNF,-0.10778772587354396,cuticle pattern formation
+GO:0035094,response to nicotine,0.0448196635976944,2.715885296977345,4,FLvNF,1.1701947598395437,response to nicotine
+GO:0035108,limb morphogenesis,0.00939729595711465,2.277517129239009,9,FLvNF,0.28497115978236975,limb morphogenesis
+GO:0035272,exocrine system development,0.01566162884372473,2.212832615167805,10,FLvNF,0.1543497720354405,exocrine system development
+GO:0035336,long-chain fatty-acyl-CoA metabolic process,2.2613867808591464e-4,1.627871023652044,5,FLvNF,-1.0268988770358256,long-chain fatty-acyl-CoA metabolic process
+GO:0035578,azurophil granule lumen,0.00596002565965054,2.3314467299928725,8,FLvNF,0.39387449456437273,azurophil granule lumen
+GO:0035904,aorta development,0.03523099268546427,1.74872012724953,5,FLvNF,-0.7828609052501896,aorta development
+GO:0035909,aorta morphogenesis,0.02071329222925609,1.8352053673078426,4,FLvNF,-0.6082159807539235,aorta morphogenesis
+GO:0038023,signaling receptor activity,6.132573246114744e-5,2.150057706983492,24,FLvNF,0.027584568022393303,signaling receptor activity
+GO:0040013,negative regulation of locomotion,0.01073807367610462,2.4479983121547724,12,FLvNF,0.6292342189851058,negative regulation of locomotion
+GO:0042060,wound healing,0.02092641016234363,2.185418990198867,15,FLvNF,0.09899176574857575,wound healing
+GO:0042063,gliogenesis,0.0223194211304946,2.087572957931368,12,FLvNF,-0.09859469994308251,gliogenesis
+GO:0042330,taxis,3.885565812097517e-5,2.2721490695778224,29,FLvNF,0.27413110923053857,taxis
+GO:0042471,ear morphogenesis,0.01771459214984938,2.5514042040795424,8,FLvNF,0.8380480486685763,ear morphogenesis
+GO:0042472,inner ear morphogenesis,0.0102565754776229,2.5514042040795424,8,FLvNF,0.8380480486685763,inner ear morphogenesis
+GO:0042475,odontogenesis of dentin-containing tooth,0.02303982169133542,2.0858256423312933,6,FLvNF,-0.10212316099424541,odontogenesis of dentin-containing tooth
+GO:0042476,odontogenesis,0.00974099214530295,1.993367798616745,8,FLvNF,-0.28882892863422166,odontogenesis
+GO:0042582,azurophil granule,0.03623179688637628,2.3314467299928725,8,FLvNF,0.39387449456437273,azurophil granule
+GO:0043025,neuronal cell body,0.02851765960029031,2.0601153645703687,22,FLvNF,-0.15404149428796376,neuronal cell body
+GO:0043200,response to amino acid,0.02430355042842092,2.2176609965952,8,FLvNF,0.16410001738664795,response to amino acid
+GO:0043235,receptor complex,0.0448196635976944,1.765097535687922,10,FLvNF,-0.7497890046780348,receptor complex
+GO:0043394,proteoglycan binding,0.00897206909770756,1.859325630066536,5,FLvNF,-0.5595084618121727,proteoglycan binding
+GO:0043434,response to peptide hormone,0.04420741990180919,1.9238598790006336,14,FLvNF,-0.4291905136291121,response to peptide hormone
+GO:0043583,ear development,0.03291807752815196,2.455704207813255,10,FLvNF,0.6447952044728537,ear development
+GO:0043586,tongue development,0.03523099268546427,2.3793475823320565,3,FLvNF,0.49060360966474204,tongue development
+GO:0043627,response to estrogen,0.00561711608507293,2.4728942447837956,7,FLvNF,0.6795080954445837,response to estrogen
+GO:0045137,development of primary sexual characteristics,0.02928312475861726,2.23790327511785,13,FLvNF,0.2049764860399925,development of primary sexual characteristics
+GO:0045745,positive regulation of G protein-coupled receptor signaling pathway,0.03312864458698161,2.6128952727170374,4,FLvNF,0.9622207171163856,positive regulation of G protein-coupled receptor signaling pathway
+GO:0045843,negative regulation of striated muscle tissue development,0.0448196635976944,2.78417218388186,4,FLvNF,1.3080906389454234,negative regulation of striated muscle tissue development
+GO:0046949,fatty-acyl-CoA biosynthetic process,0.0233028357763831,1.59419548808726,4,FLvNF,-1.0949019416294787,fatty-acyl-CoA biosynthetic process
+GO:0048018,receptor ligand activity,0.00125284030764785,2.18714556887413,7,FLvNF,0.10247835146163901,receptor ligand activity
+GO:0048145,regulation of fibroblast proliferation,0.03343079282726101,1.7321749465810117,6,FLvNF,-0.8162715985278196,regulation of fibroblast proliferation
+GO:0048147,negative regulation of fibroblast proliferation,0.01440698246019615,1.6724051589562925,4,FLvNF,-0.9369683791558068,negative regulation of fibroblast proliferation
+GO:0048406,nerve growth factor binding,0.0448196635976944,2.55768373058893,4,FLvNF,0.8507286798648924,nerve growth factor binding
+GO:0048407,platelet-derived growth factor binding,1.1544420302894868e-6,2.2161239567674826,7,FLvNF,0.16099617903829536,platelet-derived growth factor binding
+GO:0048562,embryonic organ morphogenesis,0.03233021845955693,2.53528464571376,13,FLvNF,0.8054968404877693,embryonic organ morphogenesis
+GO:0048565,digestive tract development,0.00120891647672303,2.106809790208562,15,FLvNF,-0.05974859026780605,digestive tract development
+GO:0048568,embryonic organ development,0.00679779396829602,2.4545504061824643,19,FLvNF,0.6424652624092457,embryonic organ development
+GO:0048608,reproductive structure development,0.00396193252171889,2.1834840646198166,20,FLvNF,0.09508445241474742,reproductive structure development
+GO:0048667,cell morphogenesis involved in neuron differentiation,0.00350619330045229,2.2768031772891466,26,FLvNF,0.2835294330288384,cell morphogenesis involved in neuron differentiation
+GO:0048704,embryonic skeletal system morphogenesis,0.01070436814392778,2.57165484784365,7,FLvNF,0.8789414097646289,embryonic skeletal system morphogenesis
+GO:0048705,skeletal system morphogenesis,0.01101378224832047,2.498508972419677,10,FLvNF,0.7312334785382155,skeletal system morphogenesis
+GO:0048706,embryonic skeletal system development,0.03312864458698161,2.3967962598304355,7,FLvNF,0.5258387892423146,embryonic skeletal system development
+GO:0048708,astrocyte differentiation,0.03666104114509631,1.9258112459088301,4,FLvNF,-0.42524999931572505,astrocyte differentiation
+GO:0048812,neuron projection morphogenesis,0.00305506991201291,2.246840239911354,27,FLvNF,0.22302344457921766,neuron projection morphogenesis
+GO:0048839,inner ear development,0.02169838040870514,2.455704207813255,10,FLvNF,0.6447952044728537,inner ear development
+GO:0048841,regulation of axon extension involved in axon guidance,0.01005204508813728,2.059936294392152,5,FLvNF,-0.15440310162966864,regulation of axon extension involved in axon guidance
+GO:0048844,artery morphogenesis,0.00824327624777871,1.9181153038068184,6,FLvNF,-0.44079088497930474,artery morphogenesis
+GO:0048858,cell projection morphogenesis,0.00169327316113912,2.2075899456867427,28,FLvNF,0.14376292952842282,cell projection morphogenesis
+GO:0050678,regulation of epithelial cell proliferation,0.04112617622345678,2.215045804709141,10,FLvNF,0.15881900077414754,regulation of epithelial cell proliferation
+GO:0050808,synapse organization,0.00974099214530295,2.0382853306652553,15,FLvNF,-0.19812421430514693,synapse organization
+GO:0050819,negative regulation of coagulation,0.00438845423444507,1.8725473334457199,4,FLvNF,-0.5328090690971534,negative regulation of coagulation
+GO:0050900,leukocyte migration,0.00411438890110915,2.410748133109349,10,FLvNF,0.5540126586070115,leukocyte migration
+GO:0050920,regulation of chemotaxis,0.01893595453131025,2.314428315089068,10,FLvNF,0.35950817050818623,regulation of chemotaxis
+GO:0050922,negative regulation of chemotaxis,0.00177101513431138,2.547735678508288,5,FLvNF,0.8306399710477899,negative regulation of chemotaxis
+GO:0050953,sensory perception of light stimulus,0.03312864458698161,2.2053071404504716,7,FLvNF,0.13915312156744078,sensory perception of light stimulus
+GO:0051216,cartilage development,0.00561711608507293,2.635085722941671,9,FLvNF,1.0070312478081695,cartilage development
+GO:0051593,response to folic acid,0.03523099268546427,2.2415041800499034,3,FLvNF,0.21224801317633005,response to folic acid
+GO:0055123,digestive system development,0.00182882207872164,2.106809790208562,15,FLvNF,-0.05974859026780605,digestive system development
+GO:0060021,roof of mouth development,0.00252391790014906,2.3066161320047587,7,FLvNF,0.3437325523334513,roof of mouth development
+GO:0060173,limb development,0.00897206909770756,2.180096441735095,10,FLvNF,0.08824361873578529,limb development
+GO:0060174,limb bud formation,0.00974099214530295,2.32352023543543,4,FLvNF,0.37786804025412024,limb bud formation
+GO:0060232,delamination,0.04248595872087747,2.2415041800499034,3,FLvNF,0.21224801317633005,delamination
+GO:0060326,cell chemotaxis,0.00939729595711465,2.447478644004766,7,FLvNF,0.6281848213681271,cell chemotaxis
+GO:0060465,pharynx development,0.0448196635976944,2.0371575024012474,4,FLvNF,-0.20040170676374,pharynx development
+GO:0060562,epithelial tube morphogenesis,0.02851765960029031,2.088027591094624,23,FLvNF,-0.09767663144472592,epithelial tube morphogenesis
+GO:0060840,artery development,0.00208321169379348,1.8895069230837862,8,FLvNF,-0.4985615344908936,artery development
+GO:0061036,positive regulation of cartilage development,0.04861330139558764,2.9750894508462,3,FLvNF,1.6936215301303172,positive regulation of cartilage development
+GO:0061041,regulation of wound healing,0.04976614535616262,1.8978188181413,6,FLvNF,-0.4817768174251649,regulation of wound healing
+GO:0061045,negative regulation of wound healing,0.00531449131647356,1.869202647025606,5,FLvNF,-0.5395631985521984,negative regulation of wound healing
+GO:0061134,peptidase regulator activity,0.01893595453131025,2.61520968022227,7,FLvNF,0.966894341468153,peptidase regulator activity
+GO:0061298,retina vasculature development in camera-type eye,0.04861330139558764,2.0952929095008797,3,FLvNF,-0.08300533049619073,retina vasculature development in camera-type eye
+GO:0061448,connective tissue development,0.00265917381327601,2.6417715275205382,11,FLvNF,1.0205323011102794,connective tissue development
+GO:0061458,reproductive system development,0.00438845423444507,2.1834840646198166,20,FLvNF,0.09508445241474742,reproductive system development
+GO:0061564,axon development,0.00128742738517626,2.2135631150308472,24,FLvNF,0.1558249150001771,axon development
+GO:0062009,secondary palate development,0.03523099268546427,2.2108005352461135,3,FLvNF,0.15024626900700616,secondary palate development
+GO:0062023,collagen-containing extracellular matrix,4.6572727355995276e-11,2.1440985806165767,21,FLvNF,0.01555094039169074,collagen-containing extracellular matrix
+GO:0070325,lipoprotein particle receptor binding,0.0448196635976944,1.5977068186996175,4,FLvNF,-1.0878112973847136,lipoprotein particle receptor binding
+GO:0070613,regulation of protein processing,0.01002912336817945,2.600954468393577,7,FLvNF,0.9381079220534437,regulation of protein processing
+GO:0070848,response to growth factor,0.03312864458698161,2.212674131787232,16,FLvNF,0.1540297368708808,response to growth factor
+GO:0071107,response to parathyroid hormone,0.04861330139558764,2.43644230782729,3,FLvNF,0.6058984740430678,response to parathyroid hormone
+GO:0071260,cellular response to mechanical stimulus,0.04750629172073738,2.0912382373868335,6,FLvNF,-0.09119317740205884,cellular response to mechanical stimulus
+GO:0071300,cellular response to retinoic acid,0.01180681189185586,2.308810870648163,6,FLvNF,0.34816452204768195,cellular response to retinoic acid
+GO:0071363,cellular response to growth factor stimulus,0.03029287961713511,2.212674131787232,16,FLvNF,0.1540297368708808,cellular response to growth factor stimulus
+GO:0071374,cellular response to parathyroid hormone stimulus,0.03523099268546427,2.43644230782729,3,FLvNF,0.6058984740430678,cellular response to parathyroid hormone stimulus
+GO:0071599,otic vesicle development,0.03312864458698161,2.3205086830444626,4,FLvNF,0.37178662867935386,otic vesicle development
+GO:0071711,basement membrane organization,9.385356543496862e-4,2.2820194611886913,7,FLvNF,0.2940629935204648,basement membrane organization
+GO:0071772,response to BMP,0.03304390023557463,2.267668883653128,5,FLvNF,0.2650839963125433,response to BMP
+GO:0071773,cellular response to BMP stimulus,0.03304390023557463,2.267668883653128,5,FLvNF,0.2650839963125433,cellular response to BMP stimulus
+GO:0072001,renal system development,0.02851765960029031,1.9962423154869946,13,FLvNF,-0.2830242412513863,renal system development
+GO:0072359,circulatory system development,0.00531449131647356,2.180641013112071,26,FLvNF,0.08934330495913027,circulatory system development
+GO:0072376,protein activation cascade,8.831249061079845e-5,2.4008584031727884,6,FLvNF,0.5340417232555624,protein activation cascade
+GO:0072378,"blood coagulation, fibrin clot formation",0.03029287961713511,1.80743992907028,3,FLvNF,-0.6642844250495669,"blood coagulation, fibrin clot formation"
+GO:0090092,regulation of transmembrane receptor protein serine/threonine kinase signaling pathway,0.00305506991201291,2.2931954946588102,12,FLvNF,0.3166314401159838,regulation of transmembrane receptor protein serine/threonine kinase signaling pathway
+GO:0090100,positive regulation of transmembrane receptor protein serine/threonine kinase signaling pathway,0.01073807367610462,2.4988474342695,8,FLvNF,0.7319169552120081,positive regulation of transmembrane receptor protein serine/threonine kinase signaling pathway
+GO:0090596,sensory organ morphogenesis,0.02071329222925609,2.176795931735285,18,FLvNF,0.08157869742288489,sensory organ morphogenesis
+GO:0097374,sensory neuron axon guidance,0.04861330139558764,2.268632287439443,3,FLvNF,0.2670294563865047,sensory neuron axon guidance
+GO:0097485,neuron projection guidance,0.00105309482079633,2.200266387308,20,FLvNF,0.1289740210483498,neuron projection guidance
+GO:0098743,cell aggregation,6.340523744128939e-5,2.5220529911864316,7,FLvNF,0.7787773528118618,cell aggregation
+GO:0099054,presynapse assembly,0.04861330139558764,2.568763522809797,3,FLvNF,0.8731027806310221,presynapse assembly
+GO:1900047,negative regulation of hemostasis,0.00438845423444507,1.8725473334457199,4,FLvNF,-0.5328090690971534,negative regulation of hemostasis
+GO:1902043,positive regulation of extrinsic apoptotic signaling pathway via death domain receptors,0.04248595872087747,2.2415041800499034,3,FLvNF,0.21224801317633005,positive regulation of extrinsic apoptotic signaling pathway via death domain receptors
+GO:1902667,regulation of axon guidance,0.04069010908187207,2.1696918697200016,6,FLvNF,0.06723303134807881,regulation of axon guidance
+GO:1903034,regulation of response to wounding,0.00109013599747276,2.0523530655925417,12,FLvNF,-0.16971637844144472,regulation of response to wounding
+GO:1903035,negative regulation of response to wounding,1.040031036115476e-4,1.94138506896597,9,FLvNF,-0.39380082775652586,negative regulation of response to wounding
+GO:1903317,regulation of protein maturation,0.00284801415964472,2.5239294121268614,8,FLvNF,0.7825665241576732,regulation of protein maturation
+GO:1905048,regulation of metallopeptidase activity,0.04861330139558764,2.2415041800499034,3,FLvNF,0.21224801317633005,regulation of metallopeptidase activity
+GO:1905049,negative regulation of metallopeptidase activity,0.03029287961713511,2.2415041800499034,3,FLvNF,0.21224801317633005,negative regulation of metallopeptidase activity
+GO:1905952,regulation of lipid localization,0.01070436814392778,2.0571841355107088,10,FLvNF,-0.1599607040567105,regulation of lipid localization
+GO:1905954,positive regulation of lipid localization,0.00231678840829873,2.14611153664241,8,FLvNF,0.01961582536985494,positive regulation of lipid localization
+GO:1990314,cellular response to insulin-like growth factor stimulus,0.03029287961713511,2.43644230782729,3,FLvNF,0.6058984740430678,cellular response to insulin-like growth factor stimulus
+GO:2001236,regulation of extrinsic apoptotic signaling pathway,0.01122426953364497,2.065161777333978,9,FLvNF,-0.14385096495043423,regulation of extrinsic apoptotic signaling pathway
