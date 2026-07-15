@@ -267,23 +267,7 @@ res_annot <- res.ordered %>%
 write.csv(res_annot, "res_annot.csv")
 
 
-
-#### Spis ####
-
-head(res.ordered)
-
-
-anno<- read.csv2("spis_tabulated_annots.csv", sep=",", header = T)
-res.ordered$geneid <- rownames(res.ordered)
-
-res_annot <- res.ordered %>%
-  left_join(anno, by = "geneid")
-
-#mutate(gene_id = sub("prefix_", "", gene_id))
-
-write.csv(res_annot, "res_annot.old.csv")
-
-
+#### GFP gene identification ####
 
 
 gfp_terms <- "(gfp|green fluorescent|fluorescent protein|chromophore|gfp-like|cp?gfp)"
@@ -329,6 +313,7 @@ hitmap <- pheatmap(mat_z,
          show_rownames = TRUE)  # optional for clean plots
 
 ggsave("heatmap.jpg", hitmap, width = 6, height = 6)
+                    
 # are these genes significantly participate in depth change?
 
 lrt.biomin <- res.ordered[bio_genes, ]
