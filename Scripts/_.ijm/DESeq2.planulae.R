@@ -22,17 +22,19 @@ library(stringr)
 library(ggpattern)
 library(inDAGO)
 library(paletteer)
-
+library(tidyverse)
+library(readr)
 
 # setting working directory 
 setwd("/home/gospozha/haifa/hiba/pl_align/")
 
+save.image("deseq260126.RData")
+load("deseq260126.RData")
 #### Preparing necessary files ####
 
 # list files with gene counts for each sample
 dir = "/home/gospozha/haifa/hiba/pl_align/"
 files = list.files(paste0(dir, "count.tables"), "*ReadsPerGene.out.tab", full.names = T)
-files = list.files(paste0(dir, "count.tables.old"), "*ReadsPerGene.out.tab", full.names = T)
 countData = data.frame(fread(files[1]))[c(1,3)]
 
 # looping and reading the 2nd column from the remaining files
@@ -60,10 +62,8 @@ names <- colnames(countData)
 
 # writing count matrix to a file
 write.csv(countData, file="CountMatrix.csv")  
-write.csv(countData, file="CountMatrix.old.csv")  
 # reading count matrix from a file
 countData  <- read.csv2('CountMatrix.csv', header=TRUE, row.names=1, sep=',', check.names = F)
-countData  <- read.csv2('CountMatrix.old.csv', header=TRUE, row.names=1, sep=',', check.names = F)
 # reading metadata file
 MetaData <- read.csv2('Metadata', header=TRUE, sep="\t")
 
@@ -71,8 +71,6 @@ MetaData$condition <- as.factor(MetaData$condition)
 #MetaData$origin <- as.factor(MetaData$sample)
 
 MetaData <- MetaData[match(colnames(countData), MetaData$id), ]
-
-
 
 #### Initial quality check ####
 
@@ -85,8 +83,6 @@ smallestGroupSize <- 3
 keep <- rowSums(dge$counts >= 5) >= smallestGroupSize
 dge <- dge[keep,]
 dim(dge)
-# [1] 7143   10
-# 10286 with 5 threshold
 # 9896 with stranded data
 # Calculate FPM (Fragments Per Million)
 fpm_values <- cpm(dge, normalized.lib.sizes = TRUE)  # edgeR's CPM is equivalent to FPM
@@ -181,7 +177,7 @@ dds <- DESeqDataSetFromMatrix(countData = countData,
 smallestGroupSize <- 3
 keep <- rowSums(counts(dds) >= 5) >= smallestGroupSize
 dds <- dds[keep,]
-dim(dds) # 7143 genes have left
+dim(dds) # 9896 genes have left
 
 # running a model
 dds <- DESeq(dds)
@@ -238,7 +234,7 @@ ggsave("dist.jpg", dist, width = 6, height = 6)
 #dev.off()
 
 
-res <- results(dds, contrast=c("condition","High_fluo","Non_fluo"))
+res <- results(dds, contrast = c("condition", "High_fluo", "Non_fluo"))
 summary(res)
 
 res.ordered <- data.frame(res) %>%
@@ -266,9 +262,7 @@ res_annot <- res.ordered %>%
 
 write.csv(res_annot, "res_annot.csv")
 
-
-#### GFP gene identification ####
-
+##### GFP genes ####
 
 gfp_terms <- "(gfp|green fluorescent|fluorescent protein|chromophore|gfp-like|cp?gfp)"
 
@@ -285,20 +279,16 @@ res_full_annot <- res_full %>%
   left_join(anno, by = "NCBI.GeneID")
 View(res_full_annot)
 
-
-
 ## plotting
-
-
 gfp_res <- res_annot %>%
   filter(grepl("GFP|fluorescent|chromoprotein",
                Description,
                ignore.case = TRUE))
 
-bio_genes <- c(gfp_res$Symbol) 
-bio_genes <- bio_genes[bio_genes %in% rownames(rlog)]
+gfp_genes <- c(gfp_res$Symbol) 
+gfp_genes <- gfp_genes[gfp_genes %in% rownames(rlog)]
 
-mat <- assay(rlog)[bio_genes, ]
+mat <- assay(rlog)[gfp_genes, ]
 mat_z <- t(scale(t(mat)))  # Z-score by gene
 anno_col <- data.frame(condition = colData(rlog)$condition)
 rownames(anno_col) <- colnames(rlog)  
@@ -313,10 +303,9 @@ hitmap <- pheatmap(mat_z,
          show_rownames = TRUE)  # optional for clean plots
 
 ggsave("heatmap.jpg", hitmap, width = 6, height = 6)
-                    
 # are these genes significantly participate in depth change?
 
-lrt.biomin <- res.ordered[bio_genes, ]
+lrt.biomin <- res.ordered[gfp_genes, ]
 lrt.biomin <- na.omit(lrt.biomin)
 
 # visualizing the boxplots for these genes
@@ -354,4 +343,163 @@ boxplot <- ggplot(df_long, aes(x = condition, y = expression, fill = condition))
 
 ggsave("boxplot.jpg", boxplot, width = 6, height = 6)
 
+
+#### biomineralization ####
   
+# heatmap of Z-scores
+biomineralization_gene_list <- read.csv("biomin/genes.biomin.accessions.txt", sep = " ", header = F) 
+bio_genes <- c(biomineralization_gene_list$V1) 
+bio_genes <- bio_genes[bio_genes %in% rownames(rlog)]
+mat <- assay(rlog)[bio_genes, ]
+mat_z <- t(scale(t(mat)))  # Z-score by gene
+anno_col <- data.frame(condition = colData(rlog)$condition)
+rownames(anno_col) <- colnames(rlog)  
+
+# heatmap of selected genes from rlog
+pheatmap(mat_z,
+         annotation_col = anno_col,
+         cluster_rows = TRUE,
+         cluster_cols = TRUE,
+         show_rownames = FALSE)  # optional for clean plots
+
+
+# are these genes significantly participate in depth change?
+lrt.biomin <- res.ordered[bio_genes, ]
+lrt.biomin <- na.omit(lrt.biomin)
+write.csv(lrt.biomin, file="./biomin/DE.biomin.genes.csv")
+
+# visualizing the boxplots for these genes
+sig_bio_genes <- rownames(lrt.biomin) 
+
+# Make sure they exist in rld
+sig_bio_genes <- sig_bio_genes[sig_bio_genes %in% rownames(rlog)]
+
+# Extract rlog expression matrix for those genes
+expr_mat <- assay(rlog)[sig_bio_genes, ]
+
+# Transpose and convert to data.frame
+df <- as.data.frame(t(expr_mat))
+df$sample <- rownames(df)
+df$condition <- colData(rlog)$condition[match(df$sample, rownames(colData(rlog)))]
+
+# Pivot longer for ggplot
+df_long <- df %>%
+  pivot_longer(cols = all_of(sig_bio_genes),
+               names_to = "gene",
+               values_to = "expression")
+
+# Plot
+ggplot(df_long, aes(x = condition, y = expression, fill = condition)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 1) +
+  facet_wrap(~ gene, scales = "free_y") +
+  theme_minimal(base_size = 13) +
+  labs(title = "rlog Expression of biomineralization genes significant for depth",
+       y = "rlog Expression",
+       x = "Condition") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "none")
+
+## Are these genes significantly DE in the contrasts?
+res_list <- list(
+  FLvsNF = res
+)
+
+# biomineralization gene set (named list)
+bio_gene_set <- list("Biomineralization" = bio_genes)
+
+# Function to extract direction of significant biomineralization genes from a single res
+get_directional_sig_bio_genes <- function(res, bio_genes, up_in = NULL) {
+  df <- as.data.frame(res)
+  df$gene <- rownames(df)
+  
+  df <- df %>%
+    dplyr::filter(gene %in% bio_genes, !is.na(padj), padj < 0.05)
+  
+  # Determine which group is in numerator (what positive LFC means)
+  contr <- attr(res, "contrast")  # usually c("condition","A","B")
+  num <- if (!is.null(contr) && length(contr) >= 3) contr[2] else NA_character_
+  den <- if (!is.null(contr) && length(contr) >= 3) contr[3] else NA_character_
+  
+  # If user wants "Up" to mean "up in up_in", flip sign when needed
+  if (!is.null(up_in) && !is.na(num) && up_in != num) {
+    df$log2FoldChange <- -df$log2FoldChange
+  }
+  
+  df %>%
+    dplyr::mutate(direction = dplyr::case_when(
+      log2FoldChange > 0 ~ "Up",
+      log2FoldChange < 0 ~ "Down",
+      TRUE ~ "0"
+    )) %>%
+    dplyr::select(gene, direction)
+}
+
+
+# Apply to all results, get a named list of data.frames
+
+direction_lists <- lapply(res_list, get_directional_sig_bio_genes,
+                          bio_genes = bio_genes,
+                          up_in = "High_fluo")
+names(direction_lists) <- names(res_list)
+
+# Get all genes that were significant in at least one contrast
+all_sig_genes <- unique(unlist(lapply(direction_lists, \(df) df$gene)))
+
+# Build a gene × contrast matrix filled with "0"
+summary_df <- matrix("0", nrow = length(all_sig_genes), ncol = length(res_list),
+                     dimnames = list(all_sig_genes, names(res_list)))
+
+# Fill in "Up" or "Down" for significant cases
+for (contrast_name in names(direction_lists)) {
+  df <- direction_lists[[contrast_name]]
+  summary_df[df$gene, contrast_name] <- df$direction
+}
+
+# Convert to data frame with gene column first
+summary_df <- as.data.frame(summary_df)
+summary_df$gene <- rownames(summary_df)
+summary_df <- summary_df %>% select(gene, everything())
+
+# View it
+print(summary_df)
+
+write.csv(summary_df, "biomin/biomineralization_gene_presence_summary2.csv", row.names = FALSE)
+
+
+#### biomin barplot #### 
+df <- readr::read_csv("biomin/biomineralization_gene_presence_summary.csv", show_col_types = FALSE)
+
+biomin <- ggplot(df, aes(
+  x = reorder(description, log2FoldChange),
+  y = log2FoldChange,
+  fill = log2FoldChange
+)) +
+  geom_col(width = 0.7) +
+  coord_flip() +
+  scale_fill_gradient2(
+    low = "steelblue4",
+    mid = "white",
+    high = "firebrick3",
+    midpoint = 0
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey40") +
+  labs(
+    x = "Biomineralization gene",
+    y = "log2 Fold Change\n(High fluorescent vs Non-fluorescent)",
+    title = "Differential expression of biomineralization genes"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "none",
+    axis.text.y = element_text(size = 10)
+  )
+ggsave("biomin.barplot.jpg", biomin, width = 10, height = 7)
+
+#### biomin plus GFP genes ####
+
+# subset from results
+res.selected <- res_annot %>%
+  filter(Symbol %in% c(all_sig_genes, gfp_genes))
+
+write.csv(res.selected, "biomin/biomineralization_gfp_presence.csv", row.names = FALSE)
