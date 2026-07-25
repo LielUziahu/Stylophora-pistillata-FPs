@@ -343,11 +343,265 @@ boxplot <- ggplot(df_long, aes(x = condition, y = expression, fill = condition))
 
 ggsave("boxplot.jpg", boxplot, width = 6, height = 6)
 
+#### plot with categories ####
+plot_df <- read.csv(
+  "HF_NF_57_each_plot_ready.csv",
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+) %>%
+  transmute(
+    Description = Description,
+    Primary_category = Primary_category,
+    Condition = Condition,
+    log2FoldChange = as.numeric(log2FoldChange)
+  ) %>%
+  filter(
+    !is.na(Description),
+    !is.na(Primary_category),
+    !is.na(Condition),
+    is.finite(log2FoldChange)
+  )
 
+category_order <- c(
+  "ECM/adhesion",
+  "Biomineralization",
+  "Cytoskeleton",
+  "Neuro-sensing",
+  "Metabolism",
+  "Morphogenesis",
+  "Redox regulation",
+  "Immunity",
+  "GFP",
+  "Nuclear/cell cycle",
+  "Other"
+)
+
+plot_df <- plot_df %>%
+  mutate(
+    Primary_category = factor(Primary_category, levels = category_order),
+    Description = str_remove(Description, "-like$"),
+    Description = str_trunc(Description, width = 40)
+  )
+
+hf <- plot_df %>%
+  filter(Condition == "Fluorescent") %>%
+  arrange(Primary_category, desc(abs(log2FoldChange)))
+
+nf <- plot_df %>%
+  filter(Condition == "Non-fluorescent") %>%
+  arrange(Primary_category, desc(abs(log2FoldChange)))
+
+stopifnot(nrow(hf) == nrow(nf))
+
+hf$Description <- make.unique(hf$Description)
+nf$Description <- make.unique(nf$Description)
+
+lfc_matrix <- cbind(
+  Fluorescent = hf$log2FoldChange,
+  `Non-fluorescent` = nf$log2FoldChange
+)
+
+lfc_limit <- max(abs(lfc_matrix), na.rm = TRUE)
+
+lfc_colors <- colorRamp2(
+  c(-lfc_limit, 0, lfc_limit),
+  c("#2166AC", "white", "#B2182B")
+)
+
+category_colors <- c(
+  "ECM/adhesion" = "#009E73",
+  "Biomineralization" = "#E69F00",
+  "Cytoskeleton" = "#56B4E9",
+  "Neuro-sensing" = "#0072B2",
+  "Metabolism" = "#CC79A7",
+  "Morphogenesis" = "#D55E00",
+  "Redox regulation" = "#F0E442",
+  "Immunity" = "#8C564B",
+  "GFP" = "#A6761D",
+  "Nuclear/cell cycle" = "#7B6FD0",
+  "Other" = "#BDBDBD"
+)
+
+ha_left <- rowAnnotation(
+  Gene = anno_text(
+    hf$Description,
+    just = "right",
+    location = unit(1, "npc"),
+    gp = gpar(fontsize = 6.5),
+    width = max_text_width(hf$Description, gp = gpar(fontsize = 6.5)) + unit(1, "mm")
+  ),
+  Category = hf$Primary_category,
+  col = list(Category = category_colors),
+  simple_anno_size = unit(3, "mm"),
+  show_annotation_name = FALSE,
+  show_legend = TRUE,
+  gap = unit(1.2, "mm")
+)
+
+ha_right <- rowAnnotation(
+  Category = nf$Primary_category,
+  Gene = anno_text(
+    nf$Description,
+    just = "left",
+    location = unit(0, "npc"),
+    gp = gpar(fontsize = 6.5),
+    width = max_text_width(nf$Description, gp = gpar(fontsize = 6.5)) + unit(1, "mm")
+  ),
+  col = list(Category = category_colors),
+  simple_anno_size = unit(3, "mm"),
+  show_annotation_name = FALSE,
+  show_legend = FALSE,
+  gap = unit(1.2, "mm")
+)
+
+colnames(lfc_matrix) <- c("HF", "NF")
+
+condition_split <- factor(
+  colnames(lfc_matrix),
+  levels = c("HF", "NF")
+)
+
+ht <- Heatmap(
+  lfc_matrix,
+  name = "log2FC",
+  col = lfc_colors,
+  left_annotation = ha_left,
+  right_annotation = ha_right,
+  cluster_rows = FALSE,
+  cluster_columns = FALSE,
+  show_row_names = FALSE,
+  show_column_names = FALSE,
+  column_split = condition_split,
+  column_gap = unit(7, "mm"),
+  column_title_gp = gpar(fontsize = 7, fontface = "bold"),
+  width = unit(14, "mm"),
+  border = TRUE,
+  rect_gp = gpar(col = "white", lwd = 0.4)
+)
+
+draw(
+  ht,
+  heatmap_legend_side = "right",
+  annotation_legend_side = "right",
+  merge_legends = FALSE
+)
+
+# other legend
+hf_split <- factor(hf$Primary_category, levels = category_order)
+
+ht_hf <- Heatmap(
+  matrix(hf$log2FoldChange, ncol = 1, dimnames = list(NULL, "HF")),
+  name = "log2FC",
+  col = lfc_colors,
+  cluster_rows = FALSE,
+  cluster_columns = FALSE,
+  row_split = hf_split,
+  row_gap = unit(1.2, "mm"),
+  show_row_names = FALSE,
+  show_column_names = TRUE,
+  column_names_gp = gpar(fontsize = 7, fontface = "bold"),
+  row_title_rot = 0,
+  row_title_side = "left",
+  row_title_gp = gpar(fontsize = 6, fontface = "bold"),
+  left_annotation = rowAnnotation(
+    Gene = anno_text(
+      hf$Description,
+      just = "right",
+      location = unit(1, "npc"),
+      gp = gpar(fontsize = 6),
+      width = max_text_width(hf$Description, gp = gpar(fontsize = 6)) +
+        unit(1, "mm")
+    ),
+    show_annotation_name = FALSE
+  ),
+  width = unit(7, "mm"),
+  border = TRUE,
+  rect_gp = gpar(col = "white", lwd = 0.4),
+  show_heatmap_legend = TRUE,
+  heatmap_legend_param = list(
+    title = expression(log[2] * "FC"),
+    title_gp = gpar(fontsize = 7, fontface = "bold"),
+    labels_gp = gpar(fontsize = 6),
+    legend_height = unit(25, "mm")
+  )
+)
+
+nf_split <- factor(nf$Primary_category, levels = category_order)
+
+ht_nf <- Heatmap(
+  matrix(nf$log2FoldChange, ncol = 1, dimnames = list(NULL, "NF")),
+  name = "log2FC",
+  col = lfc_colors,
+  cluster_rows = FALSE,
+  cluster_columns = FALSE,
+  row_split = nf_split,
+  row_gap = unit(1.2, "mm"),
+  show_row_names = FALSE,
+  show_column_names = TRUE,
+  column_names_gp = gpar(fontsize = 7, fontface = "bold"),
+  row_title_rot = 0,
+  row_title_side = "right",
+  row_title_gp = gpar(fontsize = 6, fontface = "bold"),
+  right_annotation = rowAnnotation(
+    Gene = anno_text(
+      nf$Description,
+      just = "left",
+      location = unit(0, "npc"),
+      gp = gpar(fontsize = 6),
+      width = max_text_width(nf$Description, gp = gpar(fontsize = 6)) +
+        unit(1, "mm")
+    ),
+    show_annotation_name = FALSE
+  ),
+  width = unit(7, "mm"),
+  border = TRUE,
+  rect_gp = gpar(col = "white", lwd = 0.4),
+  show_heatmap_legend = FALSE
+)
+
+grob_hf <- grid.grabExpr(
+  draw(
+    ht_hf,
+    heatmap_legend_side = "right",
+    padding = unit(c(2, 2, 2, 2), "mm")
+  )
+)
+
+grob_nf <- grid.grabExpr(
+  draw(
+    ht_nf,
+    padding = unit(c(2, 2, 2, 2), "mm")
+  )
+)
+
+
+gridExtra::grid.arrange(
+  grob_hf,
+  grob_nf,
+  ncol = 2,
+  widths = c(1, 1)
+)
+
+pdf(
+  "HF_NF_grouped_DEGs.pdf",
+  width = 6.5,
+  height = 4.5,
+  useDingbats = FALSE
+)
+
+
+gridExtra::grid.arrange(
+  grob_hf,
+  grob_nf,
+  ncol = 2,
+  widths = c(1, 1)
+)
+
+dev.off()
 #### biomineralization ####
   
 # heatmap of Z-scores
-biomineralization_gene_list <- read.csv("biomin/genes.biomin.accessions.txt", sep = " ", header = F) 
+biomineralization_gene_list <- read.csv("biomin/biomin.gene.accessions.with.blast.txt", sep = " ", header = F) 
 bio_genes <- c(biomineralization_gene_list$V1) 
 bio_genes <- bio_genes[bio_genes %in% rownames(rlog)]
 mat <- assay(rlog)[bio_genes, ]
@@ -364,9 +618,9 @@ pheatmap(mat_z,
 
 
 # are these genes significantly participate in depth change?
-lrt.biomin <- res.ordered[bio_genes, ]
+lrt.biomin <- res.annot[res.annot$Symbol %in% bio_genes, ]
 lrt.biomin <- na.omit(lrt.biomin)
-write.csv(lrt.biomin, file="./biomin/DE.biomin.genes.csv")
+write.csv(lrt.biomin, file="./biomin/DE.biomin.genes.with.blast.csv")
 
 # visualizing the boxplots for these genes
 sig_bio_genes <- rownames(lrt.biomin) 
