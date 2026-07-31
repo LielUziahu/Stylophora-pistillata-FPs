@@ -601,125 +601,14 @@ dev.off()
 #### biomineralization ####
   
 # heatmap of Z-scores
-biomineralization_gene_list <- read.csv("biomin/biomin.gene.accessions.with.blast.txt", sep = " ", header = F) 
+biomineralization_gene_list <- read.csv("biomin/biomin.gene.accessions.txt", sep = " ", header = F) 
 bio_genes <- c(biomineralization_gene_list$V1) 
 bio_genes <- bio_genes[bio_genes %in% rownames(rlog)]
-mat <- assay(rlog)[bio_genes, ]
-mat_z <- t(scale(t(mat)))  # Z-score by gene
-anno_col <- data.frame(condition = colData(rlog)$condition)
-rownames(anno_col) <- colnames(rlog)  
 
-# heatmap of selected genes from rlog
-pheatmap(mat_z,
-         annotation_col = anno_col,
-         cluster_rows = TRUE,
-         cluster_cols = TRUE,
-         show_rownames = FALSE)  # optional for clean plots
-
-
-# are these genes significantly participate in depth change?
+# are these genes significantly DE?
 lrt.biomin <- res.annot[res.annot$Symbol %in% bio_genes, ]
 lrt.biomin <- na.omit(lrt.biomin)
-write.csv(lrt.biomin, file="./biomin/DE.biomin.genes.with.blast.csv")
-
-# visualizing the boxplots for these genes
-sig_bio_genes <- rownames(lrt.biomin) 
-
-# Make sure they exist in rld
-sig_bio_genes <- sig_bio_genes[sig_bio_genes %in% rownames(rlog)]
-
-# Extract rlog expression matrix for those genes
-expr_mat <- assay(rlog)[sig_bio_genes, ]
-
-# Transpose and convert to data.frame
-df <- as.data.frame(t(expr_mat))
-df$sample <- rownames(df)
-df$condition <- colData(rlog)$condition[match(df$sample, rownames(colData(rlog)))]
-
-# Pivot longer for ggplot
-df_long <- df %>%
-  pivot_longer(cols = all_of(sig_bio_genes),
-               names_to = "gene",
-               values_to = "expression")
-
-# Plot
-ggplot(df_long, aes(x = condition, y = expression, fill = condition)) +
-  geom_boxplot(outlier.shape = NA) +
-  geom_jitter(width = 0.2, alpha = 0.5, size = 1) +
-  facet_wrap(~ gene, scales = "free_y") +
-  theme_minimal(base_size = 13) +
-  labs(title = "rlog Expression of biomineralization genes significant for depth",
-       y = "rlog Expression",
-       x = "Condition") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        legend.position = "none")
-
-## Are these genes significantly DE in the contrasts?
-res_list <- list(
-  FLvsNF = res
-)
-
-# biomineralization gene set (named list)
-bio_gene_set <- list("Biomineralization" = bio_genes)
-
-# Function to extract direction of significant biomineralization genes from a single res
-get_directional_sig_bio_genes <- function(res, bio_genes, up_in = NULL) {
-  df <- as.data.frame(res)
-  df$gene <- rownames(df)
-  
-  df <- df %>%
-    dplyr::filter(gene %in% bio_genes, !is.na(padj), padj < 0.05)
-  
-  # Determine which group is in numerator (what positive LFC means)
-  contr <- attr(res, "contrast")  # usually c("condition","A","B")
-  num <- if (!is.null(contr) && length(contr) >= 3) contr[2] else NA_character_
-  den <- if (!is.null(contr) && length(contr) >= 3) contr[3] else NA_character_
-  
-  # If user wants "Up" to mean "up in up_in", flip sign when needed
-  if (!is.null(up_in) && !is.na(num) && up_in != num) {
-    df$log2FoldChange <- -df$log2FoldChange
-  }
-  
-  df %>%
-    dplyr::mutate(direction = dplyr::case_when(
-      log2FoldChange > 0 ~ "Up",
-      log2FoldChange < 0 ~ "Down",
-      TRUE ~ "0"
-    )) %>%
-    dplyr::select(gene, direction)
-}
-
-
-# Apply to all results, get a named list of data.frames
-
-direction_lists <- lapply(res_list, get_directional_sig_bio_genes,
-                          bio_genes = bio_genes,
-                          up_in = "High_fluo")
-names(direction_lists) <- names(res_list)
-
-# Get all genes that were significant in at least one contrast
-all_sig_genes <- unique(unlist(lapply(direction_lists, \(df) df$gene)))
-
-# Build a gene × contrast matrix filled with "0"
-summary_df <- matrix("0", nrow = length(all_sig_genes), ncol = length(res_list),
-                     dimnames = list(all_sig_genes, names(res_list)))
-
-# Fill in "Up" or "Down" for significant cases
-for (contrast_name in names(direction_lists)) {
-  df <- direction_lists[[contrast_name]]
-  summary_df[df$gene, contrast_name] <- df$direction
-}
-
-# Convert to data frame with gene column first
-summary_df <- as.data.frame(summary_df)
-summary_df$gene <- rownames(summary_df)
-summary_df <- summary_df %>% select(gene, everything())
-
-# View it
-print(summary_df)
-
-write.csv(summary_df, "biomin/biomineralization_gene_presence_summary2.csv", row.names = FALSE)
-
+write.csv(lrt.biomin, file="./biomin/biomineralization_genes.csv")
 
 #### biomin barplot #### 
 df <- readr::read_csv("biomin/biomineralization_gene_presence_summary.csv", show_col_types = FALSE)
